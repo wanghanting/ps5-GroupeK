@@ -20,8 +20,8 @@ public class Game {
     public Game() {
         player1 = new Player("player1");
         player2 = new Player("player2");
-//        player1.addCard(new Card(Rank.TWO));
-//        player2.addCard(new Card(Rank.THREE));
+        player1.addCard(new Card(Rank.TWO));
+        player2.addCard(new Card(Rank.THREE));
     }
 
     public void show() {
