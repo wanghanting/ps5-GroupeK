@@ -30,28 +30,140 @@ public class GameTest {
     @Test
     void testCompareHighCard() {
         Card card1 = new Card(Rank.TWO);
-        Card card2 = new Card(Rank.THREE);
+        Card card2 = new Card(Rank.FIVE);
+        Card card3 = new Card(Rank.THREE);
+        Card card4 = new Card(Rank.THREE);
         List<Card> cardlist1 = new ArrayList<Card>();
         List<Card> cardlist2 = new ArrayList<Card>();
         cardlist1.add(card1);
-        cardlist2.add(card2);
+        cardlist1.add(card2);
+        cardlist2.add(card3);
+        cardlist2.add(card4);
         int actual = game.compareHighCard(cardlist1, cardlist2);
-        int expected = 2;
+        int expected = 1;
         assertEquals(actual, expected);
     }
 
     @Test
     void testCompareHighCard1() {
         Card card1 = new Card(Rank.FIVE);
-        Card card2 = new Card(Rank.FIVE);
+        Card card2 = new Card(Rank.FOUR);
+        Card card3 = new Card(Rank.TWO);
+        Card card4 = new Card(Rank.EIGHT);
         List<Card> cardlist1 = new ArrayList<Card>();
         List<Card> cardlist2 = new ArrayList<Card>();
         cardlist1.add(card1);
-        cardlist2.add(card2);
+        cardlist1.add(card2);
+        cardlist2.add(card3);
+        cardlist2.add(card4);
         int actual = game.compareHighCard(cardlist1, cardlist2);
-        int expected = 0;
+        int expected = 2;
         assertEquals(actual, expected);
     }
+    
+    @Test
+    void Testpair() {
+    	Card card1 = new Card(Rank.FIVE);
+        Card card2 = new Card(Rank.FOUR);
+        List<Card> cardlist1 = new ArrayList<Card>();
+        cardlist1.add(card1);
+        cardlist1.add(card2);
+        boolean actual = game.pair(cardlist1);
+        boolean expected = false;
+        assertEquals(actual, expected);
+        
+    }
+    
+    @Test
+    void Testpair1() {
+    	Card card1 = new Card(Rank.EIGHT);
+        Card card2 = new Card(Rank.EIGHT);
+        List<Card> cardlist1 = new ArrayList<Card>();
+        cardlist1.add(card1);
+        cardlist1.add(card2);
+        boolean actual = game.pair(cardlist1);
+        boolean expected = true;
+        assertEquals(actual, expected);
+        
+    }
+    
+    @Test
+    void TestMax() {
+    	Card card1 = new Card(Rank.JACK);
+        Card card2 = new Card(Rank.EIGHT);
+        List<Card> cardlist1 = new ArrayList<Card>();
+        cardlist1.add(card1);
+        cardlist1.add(card2);
+        Card actual = game.max(cardlist1);
+        Card expected = card1;
+        assertEquals(actual, expected);
+    }
+    
+    @Test
+    void TestMax1() {
+    	Card card1 = new Card(Rank.SEVEN);
+        Card card2 = new Card(Rank.ACE);
+        List<Card> cardlist1 = new ArrayList<Card>();
+        cardlist1.add(card1);
+        cardlist1.add(card2);
+        Card actual = game.max(cardlist1);
+        Card expected = card2;
+        assertEquals(actual, expected);
+    }
+    
+    @Test
+    void TestComparepair() {
+    	Card card1 = new Card(Rank.FIVE);
+        Card card2 = new Card(Rank.FOUR);
+        Card card3 = new Card(Rank.TWO);
+        Card card4 = new Card(Rank.EIGHT);
+        List<Card> cardlist1 = new ArrayList<Card>();
+        List<Card> cardlist2 = new ArrayList<Card>();
+        cardlist1.add(card1);
+        cardlist1.add(card2);
+        cardlist2.add(card3);
+        cardlist2.add(card4);
+        int actual = game.comparePair(cardlist1, cardlist2);
+        int expected = 2;
+        assertEquals(actual, expected);
+    }
+    
+    @Test
+    void TestComparepair1() {
+    	Card card1 = new Card(Rank.FIVE);
+        Card card2 = new Card(Rank.FIVE);
+        Card card3 = new Card(Rank.TWO);
+        Card card4 = new Card(Rank.EIGHT);
+        List<Card> cardlist1 = new ArrayList<Card>();
+        List<Card> cardlist2 = new ArrayList<Card>();
+        cardlist1.add(card1);
+        cardlist1.add(card2);
+        cardlist2.add(card3);
+        cardlist2.add(card4);
+        int actual = game.comparePair(cardlist1, cardlist2);
+        int expected = 1;
+        assertEquals(actual, expected);
+    }
+    
+    @Test
+    void TestComparepair2() {
+    	Card card1 = new Card(Rank.FIVE);
+        Card card2 = new Card(Rank.FIVE);
+        Card card3 = new Card(Rank.TWO);
+        Card card4 = new Card(Rank.TWO);
+        List<Card> cardlist1 = new ArrayList<Card>();
+        List<Card> cardlist2 = new ArrayList<Card>();
+        cardlist1.add(card1);
+        cardlist1.add(card2);
+        cardlist2.add(card3);
+        cardlist2.add(card4);
+        int actual = game.comparePair(cardlist1, cardlist2);
+        int expected = 1;
+        assertEquals(actual, expected);
+    }
+    
+    
+
 }
 
 
