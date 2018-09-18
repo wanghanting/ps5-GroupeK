@@ -2,17 +2,14 @@ package control;
 
 import model.Card;
 
-import java.util.*;
-
 import model.Player;
 import model.Rank;
 
-import java.util.Collections;
 import java.util.List;
 
 /**
  * @Project: Dojo
- * @Author: WU Kejia
+ * @Author: PS5-Groupe K
  * @Version: 2.0
  * @Copyright: Copyright (c) 2018
  * @University: Polytech Nice-Sophia
@@ -24,17 +21,19 @@ public class Game {
     public Game() {
         player1 = new Player("player1");
         player2 = new Player("player2");
+        player1.addCard(new Card(Rank.FIVE));
         player1.addCard(new Card(Rank.FOUR));
-        player1.addCard(new Card(Rank.FOUR));
-        player2.addCard(new Card(Rank.FIVE));
-        player2.addCard(new Card(Rank.FIVE));
+        player2.addCard(new Card(Rank.THREE));
+        player2.addCard(new Card(Rank.THREE));
     }
 
     public void show() {
         System.out.println("Name: " + player1.getName());
         player1.showAllCard();
+        System.out.println(" ");
         System.out.println("Name: " + player2.getName());
         player2.showAllCard();
+        System.out.println(" ");
     }
 
     /*
@@ -50,13 +49,21 @@ public class Game {
         return cardMax;
     }
 
+    /*
+     * pour obtenir la pair dans une main
+     */
+    public Card pair(List<Card> handCard1) {
+        Card cardPair = handCard1.get(0);
+        for (int i = 1; i < handCard1.size(); i++) {
+            if (cardPair.getValue() == handCard1.get(i).getValue()) {
+                cardPair = handCard1.get(i);
+            }
+        }
+        return cardPair;
+    }
+
     // 0 = equal ; 1 = p1 win ; 2 = p2 win
     public int compareHighCard(List<Card> handCard1, List<Card> handCard2) {
-        // Card card1 = handCard1.get(0);
-        //Card card2 = handCard1.get(1);
-        // Card card3 = handCard2.get(0);
-        // Card card4 = handCard2.get(1);
-
         if (max(handCard1).getValue() > max(handCard2).getValue()) {
             return 1;
         } else if (max(handCard1).getValue() < max(handCard2).getValue()) {
@@ -66,10 +73,11 @@ public class Game {
         }
     }
 
+    // 0 = equal ; 1 = p1 win ; 2 = p2 win
     public int comparePair(List<Card> handCard1, List<Card> handCard2) {
-        if (pair(handCard1) == true && pair(handCard2) == false) {
+        if (havePair(handCard1) && !havePair(handCard2)) {
             return 1;
-        } else if (pair(handCard2) == true && pair(handCard1) == false) {
+        } else if (havePair(handCard2) && !havePair(handCard1)) {
             return 2;
         } else {
             return compareHighCard(handCard1, handCard2);
@@ -79,7 +87,7 @@ public class Game {
     /*
      * pour tester est ce qu'il y a une pair
      */
-    public boolean pair(List<Card> handCard1) {
+    public boolean havePair(List<Card> handCard1) {
         Card card1 = handCard1.get(0);
         Card card2 = handCard1.get(1);
         if (card1.getValue() == card2.getValue()) {

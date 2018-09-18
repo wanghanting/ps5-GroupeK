@@ -3,8 +3,8 @@ package control;
 
 /**
  * @Project: Dojo
- * @Author: WANG Hanting
- * @Version: 1.0
+ * @Author: PS5-Groupe K
+ * @Version: 2.0
  * @Copyright: Copyright (c) 2018
  * @University: Polytech Nice-Sophia
  */
