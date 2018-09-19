@@ -174,7 +174,19 @@ public class GameTest {
         assertEquals(actual, expected);
     }
     
-    
+    @Test
+    void testHaveBrelan() {
+    	Card card1 = new Card(Rank.FOUR);
+    	Card card2 = new Card(Rank.FOUR);
+    	Card card3 = new Card(Rank.FOUR);
+    	List<Card> cardlist1 = new ArrayList<Card>();
+    	cardlist1.add(card1);
+    	cardlist1.add(card2);
+    	cardlist1.add(card3);
+    	boolean actual = game.haveBrelan(cardlist1);
+    	boolean expected = true;
+    	assertEquals(actual, expected);
+    }
 
 }
 

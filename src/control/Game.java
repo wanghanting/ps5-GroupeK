@@ -21,10 +21,6 @@ public class Game {
     public Game() {
         player1 = new Player("player1");
         player2 = new Player("player2");
-        player1.addCard(new Card(Rank.FIVE));
-        player1.addCard(new Card(Rank.FOUR));
-        player2.addCard(new Card(Rank.THREE));
-        player2.addCard(new Card(Rank.THREE));
     }
 
     public void show() {
@@ -91,6 +87,19 @@ public class Game {
         Card card1 = handCard1.get(0);
         Card card2 = handCard1.get(1);
         if (card1.getValue() == card2.getValue()) {
+            return true;
+        } else
+            return false;
+    }
+    /*
+     * Pour tester la présence d'un brelan
+     */
+    
+    public boolean haveBrelan(List<Card> handCard1) {
+        Card card1 = handCard1.get(0);
+        Card card2 = handCard1.get(1);
+        Card card3 = handCard1.get(2);
+        if (card1.getValue() == card2.getValue() && card3.getValue() == card2.getValue()) {
             return true;
         } else
             return false;
