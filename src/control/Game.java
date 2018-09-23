@@ -24,12 +24,6 @@ public class Game {
 	public Game() {
 		player1 = new Player("player1");
 		player2 = new Player("player2");
-//        player1.addCard(new Card(Rank.TWO));
-//        player1.addCard(new Card(Rank.TWO));
-//        player1.addCard(new Card(Rank.TWO));
-//        player2.addCard(new Card(Rank.FIVE));
-//        player2.addCard(new Card(Rank.FIVE));
-//        player2.addCard(new Card(Rank.THREE));
 	}
 
 	public void show() {
@@ -87,6 +81,14 @@ public class Game {
 			return 1;
 		} else if (havePair(handCard2) > 0 && havePair(handCard1) == 0) {
 			return 2;
+		} else if (havePair(handCard2) > 0 && havePair(handCard1) > 0) {
+			if (havePair(handCard1) > havePair(handCard2)) {
+				return 1;
+			} else if (havePair(handCard1) < havePair(handCard2)) {
+				return 2;
+			} else {
+				return compareHighCard(handCard1, handCard2);
+			}
 		} else {
 			return compareHighCard(handCard1, handCard2);
 		}
@@ -127,19 +129,20 @@ public class Game {
 	}
 
 	public int compareBrelan(List<Card> handCard1, List<Card> handCard2) {
-		if (haveBrelan(handCard1) == true && haveBrelan(handCard2) == false) {
+		if (haveBrelan(handCard1) != 0 && haveBrelan(handCard2) == 0) {
 			return 1;
-		} else if (haveBrelan(handCard2) == false && haveBrelan(handCard1) == true) {
+		} else if (haveBrelan(handCard2) != 0 && haveBrelan(handCard1) == 0) {
 			return 2;
 		} else {
-			return compareHighCard(handCard1, handCard2);
+			return comparePair(handCard1, handCard2);
+
 		}
 	}
 
 	public void compare() {
 		List<Card> handCard1 = player1.getHandcard();
 		List<Card> handCard2 = player2.getHandcard();
-		int result = comparePair(handCard1, handCard2);
+		int result = compareBrelan(handCard1, handCard2);
 		switch (result) {
 		case 1:
 			System.out.println("player1 win!");

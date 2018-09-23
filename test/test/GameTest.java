@@ -45,6 +45,48 @@ public class GameTest {
     }
     
     @Test
+    void testEquals1() {
+    	Card card1 = new Card(Rank.EIGHT);
+        Card card2 = new Card(Rank.FIVE);
+        Card card3 = new Card(Rank.FIVE);
+        Card card4 = new Card(Rank.TWO);
+        Card card5 = new Card(Rank.EIGHT);
+        Card card6 = new Card(Rank.THREE);
+        List<Card> cardlist1 = new ArrayList<Card>();
+        List<Card> cardlist2 = new ArrayList<Card>();
+        cardlist1.add(card1);
+        cardlist1.add(card2);
+        cardlist1.add(card3);
+        cardlist2.add(card4);
+        cardlist2.add(card6);
+        cardlist2.add(card5);
+        cardlist2.add(card6);
+        boolean actual = game.equals(cardlist1, cardlist2);
+        boolean expected = false;
+        assertEquals(actual, expected);
+    }
+    
+    @Test
+    void testEquals2() {
+    	Card card1 = new Card(Rank.EIGHT);
+        Card card2 = new Card(Rank.FIVE);
+        Card card3 = new Card(Rank.TWO);
+        Card card4 = new Card(Rank.TWO);
+        Card card5 = new Card(Rank.EIGHT);
+        Card card6 = new Card(Rank.FIVE);
+        List<Card> cardlist1 = new ArrayList<Card>();
+        List<Card> cardlist2 = new ArrayList<Card>();
+        cardlist1.add(card1);
+        cardlist1.add(card2);
+        cardlist1.add(card3);
+        cardlist2.add(card5);
+        cardlist2.add(card6);
+        boolean actual = game.equals(cardlist1, cardlist2);
+        boolean expected = false;
+        assertEquals(actual, expected);
+    }
+    
+    @Test
     void testCompareHighCard() {
         Card card1 = new Card(Rank.TWO);
         Card card2 = new Card(Rank.FIVE);
@@ -192,7 +234,85 @@ public class GameTest {
     	int expected = card1.getValue();
     	assertEquals(actual, expected);
     }
+    
+    @Test
+    void testHaveBrelan1() {
+    	Card card1 = new Card(Rank.FOUR);
+    	Card card2 = new Card(Rank.THREE);
+    	Card card3 = new Card(Rank.FOUR);
+    	List<Card> cardlist1 = new ArrayList<Card>();
+    	cardlist1.add(card1);
+    	cardlist1.add(card2);
+    	cardlist1.add(card3);
+    	int actual = game.haveBrelan(cardlist1);
+    	int expected = 0;
+    	assertEquals(actual, expected);
+    }
+    
+    @Test
+    void testComparebrelan() {
+    	Card card1 = new Card(Rank.EIGHT);
+        Card card2 = new Card(Rank.EIGHT);
+        Card card3 = new Card(Rank.EIGHT);
+        Card card4 = new Card(Rank.TWO);
+        Card card5 = new Card(Rank.TWO);
+        Card card6 = new Card(Rank.TWO);
+        List<Card> cardlist1 = new ArrayList<Card>();
+        List<Card> cardlist2 = new ArrayList<Card>();
+        cardlist1.add(card1);
+        cardlist1.add(card2);
+        cardlist1.add(card3);
+        cardlist2.add(card5);
+        cardlist2.add(card6);
+        int actual = game.compareBrelan(cardlist1, cardlist2);
+        int expected = 1;
+        assertEquals(actual, expected);
+    }
+    
 
+    @Test
+    void testComparebrelan1() {
+    	Card card1 = new Card(Rank.EIGHT);
+        Card card2 = new Card(Rank.NINE);
+        Card card3 = new Card(Rank.EIGHT);
+        Card card4 = new Card(Rank.FOUR);
+        Card card5 = new Card(Rank.FOUR);
+        Card card6 = new Card(Rank.FOUR);
+        List<Card> cardlist1 = new ArrayList<Card>();
+        List<Card> cardlist2 = new ArrayList<Card>();
+        cardlist1.add(card1);
+        cardlist1.add(card2);
+        cardlist1.add(card3);
+        cardlist2.add(card4);
+        cardlist2.add(card5);
+        cardlist2.add(card6);
+        int actual = game.compareBrelan(cardlist1, cardlist2);
+        int expected = 2;
+        assertEquals(actual, expected);
+    }
+    
+    @Test
+    void testComparebrelan1() {
+    	Card card1 = new Card(Rank.EIGHT);
+        Card card2 = new Card(Rank.NINE);
+        Card card3 = new Card(Rank.FOUR);
+        Card card4 = new Card(Rank.FOUR);
+        Card card5 = new Card(Rank.FOUR);
+        Card card6 = new Card(Rank.FOUR);
+        List<Card> cardlist1 = new ArrayList<Card>();
+        List<Card> cardlist2 = new ArrayList<Card>();
+        cardlist1.add(card1);
+        cardlist1.add(card2);
+        cardlist1.add(card3);
+        cardlist2.add(card4);
+        cardlist2.add(card5);
+        cardlist2.add(card6);
+        int actual = game.compareBrelan(cardlist1, cardlist2);
+        int expected = 2;
+        assertEquals(actual, expected);
+    }
+
+    
 }
 
 
