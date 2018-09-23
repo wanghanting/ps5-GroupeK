@@ -28,6 +28,23 @@ public class GameTest {
     }
 
     @Test
+    void testEquals() {
+    	Card card1 = new Card(Rank.TWO);
+        Card card2 = new Card(Rank.FIVE);
+        Card card3 = new Card(Rank.FIVE);
+        Card card4 = new Card(Rank.TWO);
+        List<Card> cardlist1 = new ArrayList<Card>();
+        List<Card> cardlist2 = new ArrayList<Card>();
+        cardlist1.add(card1);
+        cardlist1.add(card2);
+        cardlist2.add(card3);
+        cardlist2.add(card4);
+        boolean actual = game.equals(cardlist1, cardlist2);
+        boolean expected = false;
+        assertEquals(actual, expected);
+    }
+    
+    @Test
     void testCompareHighCard() {
         Card card1 = new Card(Rank.TWO);
         Card card2 = new Card(Rank.FIVE);
@@ -112,18 +129,6 @@ public class GameTest {
     }
 
     @Test
-    void testPair1() {
-        Card card1 = new Card(Rank.SEVEN);
-        Card card2 = new Card(Rank.SEVEN);
-        List<Card> cardlist1 = new ArrayList<Card>();
-        cardlist1.add(card1);
-        cardlist1.add(card2);
-        Card actual = game.pair(cardlist1);
-        Card expected = card2;
-        assertEquals(actual, expected);
-    }
-
-    @Test
     void testComparePair() {
     	Card card1 = new Card(Rank.FIVE);
         Card card2 = new Card(Rank.FOUR);
@@ -183,8 +188,8 @@ public class GameTest {
     	cardlist1.add(card1);
     	cardlist1.add(card2);
     	cardlist1.add(card3);
-    	boolean actual = game.haveBrelan(cardlist1);
-    	boolean expected = true;
+    	int actual = game.haveBrelan(cardlist1);
+    	int expected = card1.getValue();
     	assertEquals(actual, expected);
     }
 
