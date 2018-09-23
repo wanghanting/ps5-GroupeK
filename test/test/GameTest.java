@@ -68,8 +68,8 @@ public class GameTest {
         List<Card> cardlist1 = new ArrayList<Card>();
         cardlist1.add(card1);
         cardlist1.add(card2);
-        boolean actual = game.havePair(cardlist1);
-        boolean expected = false;
+        int actual = game.havePair(cardlist1);
+        int expected = 0;
         assertEquals(actual, expected);
         
     }
@@ -81,8 +81,8 @@ public class GameTest {
         List<Card> cardlist1 = new ArrayList<Card>();
         cardlist1.add(card1);
         cardlist1.add(card2);
-        boolean actual = game.havePair(cardlist1);
-        boolean expected = true;
+        int actual = game.havePair(cardlist1);
+        int expected = Rank.EIGHT.getValue();
         assertEquals(actual, expected);
         
     }

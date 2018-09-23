@@ -1,11 +1,11 @@
 package control;
 
 import model.Card;
-
 import model.Player;
 import model.Rank;
 
 import java.util.List;
+import java.util.Scanner;
 
 /**
  * @Project: Dojo
@@ -15,12 +15,19 @@ import java.util.List;
  * @University: Polytech Nice-Sophia
  */
 public class Game {
-    private Player player1;
-    private Player player2;
+    Player player1;
+    Player player2;
+    Scanner in = new Scanner(System.in);
 
     public Game() {
         player1 = new Player("player1");
         player2 = new Player("player2");
+//        player1.addCard(new Card(Rank.TWO));
+//        player1.addCard(new Card(Rank.TWO));
+//        player1.addCard(new Card(Rank.TWO));
+//        player2.addCard(new Card(Rank.FIVE));
+//        player2.addCard(new Card(Rank.FIVE));
+//        player2.addCard(new Card(Rank.THREE));
     }
 
     public void show() {
@@ -30,6 +37,15 @@ public class Game {
         System.out.println("Name: " + player2.getName());
         player2.showAllCard();
         System.out.println(" ");
+    }
+
+
+    public void playerOneAddCard (){
+        player1.addCard(new Card(Rank.getRank(in.nextInt())));
+    }
+
+    public void playerTwoAddCard (){
+        player2.addCard(new Card(Rank.getRank(in.nextInt())));
     }
 
     /*
@@ -71,9 +87,9 @@ public class Game {
 
     // 0 = equal ; 1 = p1 win ; 2 = p2 win
     public int comparePair(List<Card> handCard1, List<Card> handCard2) {
-        if (havePair(handCard1) && !havePair(handCard2)) {
+        if (havePair(handCard1) > 0 && havePair(handCard2) == 0) {
             return 1;
-        } else if (havePair(handCard2) && !havePair(handCard1)) {
+        } else if (havePair(handCard2) > 0 && havePair(handCard1) == 0) {
             return 2;
         } else {
             return compareHighCard(handCard1, handCard2);
@@ -83,16 +99,19 @@ public class Game {
     /*
      * pour tester est ce qu'il y a une pair
      */
-    public boolean havePair(List<Card> handCard1) {
-        Card card1 = handCard1.get(0);
-        Card card2 = handCard1.get(1);
-        if (card1.getValue() == card2.getValue()) {
-            return true;
-        } else
-            return false;
+    public int havePair(List<Card> handCard1) {
+        for (int i = 0; i < handCard1.size(); i++) {
+            for (int j = i + 1; j < handCard1.size(); j++) {
+                if (handCard1.get(i).getValue() == handCard1.get(j).getValue()) {
+                    return handCard1.get(i).getValue();
+                }
+            }
+        }
+        return 0;
     }
+
     /*
-     * Pour tester la présence d'un brelan
+     * Pour tester la prï¿½sence d'un brelan
      */
     
     public boolean haveBrelan(List<Card> handCard1) {
@@ -121,6 +140,4 @@ public class Game {
                 break;
         }
     }
-    //System.out.println(max(handCard1).getValue());
-    //System.out.println(max(handCard2).getValue());
 }

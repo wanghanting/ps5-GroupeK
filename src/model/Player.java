@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  * @Project: Dojo
@@ -13,6 +14,10 @@ import java.util.List;
 public class Player {
     String name;
     List<Card> handcard;
+    Player player1;
+    Player player2;
+    Scanner in = new Scanner(System.in);
+
 
     public Player(String name) {
         this.name = name;
