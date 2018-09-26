@@ -320,8 +320,20 @@ public class GameTest {
         int expected = 1;
         assertEquals(actual, expected);
     }
-
     
+    @Test
+    void testHaveDoublePair() {
+    	Card card1 = new Card(Rank.FOUR);
+        Card card2 = new Card(Rank.NINE);
+        Card card3 = new Card(Rank.FOUR);
+        Card card4 = new Card(Rank.NINE);
+        List<Card> cardlist1 = new ArrayList<Card>();
+        cardlist1.add(card1);
+        cardlist1.add(card2);
+        cardlist1.add(card3);
+        cardlist1.add(card4);
+        assertTrue(game.haveDoublePair(cardlist1));
+    }
 }
 
 

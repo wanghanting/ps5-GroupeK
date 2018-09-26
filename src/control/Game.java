@@ -20,6 +20,7 @@ public class Game {
 	Player player1;
 	Player player2;
 	Scanner in = new Scanner(System.in);
+	List<Card> listePair = new ArrayList<Card>();
 
 	public Game() {
 		player1 = new Player("player1");
@@ -78,10 +79,10 @@ public class Game {
 	// 0 = equal ; 1 = p1 win ; 2 = p2 win
 	public int compareHighCard(List<Card> handCard1, List<Card> handCard2) {
 		if (max(handCard1).getValue() > max(handCard2).getValue()) {
-			System.out.println("player1 est gagne avec la haute carte " + max(handCard1).getValue());
+			System.out.println("player1 gagne avec la plus haute carte " + max(handCard1).getValue());
 			return 1;
 		} else if (max(handCard1).getValue() < max(handCard2).getValue()) {
-			System.out.println("player2 est gagne avec la haute carte " + max(handCard2).getValue());
+			System.out.println("player2 gagne avec la plus haute carte " + max(handCard2).getValue());
 			return 2;
 		} else {
 			System.out.println("Egalité");
@@ -119,6 +120,7 @@ public class Game {
 		for (int i = 0; i < handCard1.size(); i++) {
 			for (int j = i + 1; j < handCard1.size(); j++) {
 				if (handCard1.get(i).getValue() == handCard1.get(j).getValue()) {
+					listePair(handCard1.get(i));
 					return handCard1.get(i).getValue();
 				}
 			}
@@ -167,4 +169,18 @@ public class Game {
 			System.out.println("Egalité");
 		}
 	}
+
+  	 public List<Card> listePair(Card carte){
+  		 listePair.add(carte);
+  		 return listePair;
+    }
+
+    public boolean haveDoublePair(List<Card> handCard1) {
+		if (listePair.size()==2) {
+			System.out.println(listePair.size());
+			return true;
+		}
+		return false;
+	}
+
 }

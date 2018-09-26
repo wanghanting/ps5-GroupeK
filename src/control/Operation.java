@@ -1,5 +1,8 @@
 package control;
 
+import java.util.List;
+
+import model.Card;
 import model.Rank;
 
 /**
@@ -17,7 +20,9 @@ public class Operation {
         game.playerOneAddCard();
         game.playerOneAddCard();
         game.playerOneAddCard();
+        game.playerOneAddCard();
         System.out.print("Main 2: ");
+        game.playerTwoAddCard();
         game.playerTwoAddCard();
         game.playerTwoAddCard();
         game.playerTwoAddCard();
