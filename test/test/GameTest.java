@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
@@ -39,9 +40,7 @@ public class GameTest {
         cardlist1.add(card2);
         cardlist2.add(card3);
         cardlist2.add(card4);
-        boolean actual = game.equals(cardlist1, cardlist2);
-        boolean expected = false;
-        assertEquals(actual, expected);
+        assertTrue(!game.equals(cardlist1, cardlist2));
     }
     
     @Test
@@ -61,9 +60,7 @@ public class GameTest {
         cardlist2.add(card6);
         cardlist2.add(card5);
         cardlist2.add(card6);
-        boolean actual = game.equals(cardlist1, cardlist2);
-        boolean expected = false;
-        assertEquals(actual, expected);
+        assertTrue(!game.equals(cardlist1, cardlist2));
     }
     
     @Test
@@ -79,11 +76,10 @@ public class GameTest {
         cardlist1.add(card1);
         cardlist1.add(card2);
         cardlist1.add(card3);
+        cardlist2.add(card4);
         cardlist2.add(card5);
         cardlist2.add(card6);
-        boolean actual = game.equals(cardlist1, cardlist2);
-        boolean expected = false;
-        assertEquals(actual, expected);
+        assertTrue(!game.equals(cardlist1, cardlist2));
     }
     
     @Test
@@ -262,6 +258,7 @@ public class GameTest {
         cardlist1.add(card1);
         cardlist1.add(card2);
         cardlist1.add(card3);
+        cardlist1.add(card4);
         cardlist2.add(card5);
         cardlist2.add(card6);
         int actual = game.compareBrelan(cardlist1, cardlist2);
@@ -292,7 +289,7 @@ public class GameTest {
     }
     
     @Test
-    void testComparebrelan1() {
+    void testComparebrelan2() {
     	Card card1 = new Card(Rank.EIGHT);
         Card card2 = new Card(Rank.NINE);
         Card card3 = new Card(Rank.FOUR);

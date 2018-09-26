@@ -1,5 +1,7 @@
 package control;
 
+import model.Rank;
+
 /**
  * @Project: Dojo
  * @Author: PS5-Groupe K
