@@ -41,7 +41,7 @@ public class Game {
 			sc += 13;
 		}
 		player1.addCard(new Card(Rank.getRank(sc)));
-		System.out.println(Rank.getRank(sc));
+		// System.out.println(Rank.getRank(sc));
 	}
 
 	public void playerTwoAddCard() {
@@ -50,7 +50,7 @@ public class Game {
 			sc1 += 13;
 		}
 		player2.addCard(new Card(Rank.getRank(sc1)));
-		System.out.println(Rank.getRank(sc1));
+		// System.out.println(Rank.getRank(sc1));
 	}
 
 	/*
@@ -78,10 +78,10 @@ public class Game {
 	// 0 = equal ; 1 = p1 win ; 2 = p2 win
 	public int compareHighCard(List<Card> handCard1, List<Card> handCard2) {
 		if (max(handCard1).getValue() > max(handCard2).getValue()) {
-			System.out.println("player1 est gegne avec la haute carte");
+			System.out.println("player1 est gegne avec la haute carte " + max(handCard1).getValue());
 			return 1;
 		} else if (max(handCard1).getValue() < max(handCard2).getValue()) {
-			System.out.println("player2 est gegne avec la haute carte");
+			System.out.println("player2 est gegne avec la haute carte " + max(handCard2).getValue());
 			return 2;
 		} else {
 			System.out.println("les deux sont identiques");
@@ -99,10 +99,10 @@ public class Game {
 			return 2;
 		} else if (havePair(handCard2) > 0 && havePair(handCard1) > 0) {
 			if (havePair(handCard1) > havePair(handCard2)) {
-				System.out.println("player 1 est gegne avec brelan de "+ haveBrelan(handCard1)+" qui est plus grand");
+				System.out.println("player 1 est gegne avec pair de "+ havePair(handCard1)+" qui est plus grand");
 				return 1;
 			} else if (havePair(handCard1) < havePair(handCard2)) {
-				System.out.println("player 2 est gegne avec brelan de "+ haveBrelan(handCard2)+" qui est plus grand");
+				System.out.println("player 2 est gegne avec pair de "+ havePair(handCard2)+" qui est plus grand");
 				return 2;
 			} else {
 				return compareHighCard(handCard1, handCard2);

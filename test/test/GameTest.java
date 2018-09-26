@@ -10,8 +10,8 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @Project: Dojo
@@ -103,14 +103,18 @@ public class GameTest {
     void testCompareHighCard1() {
         Card card1 = new Card(Rank.FIVE);
         Card card2 = new Card(Rank.FOUR);
-        Card card3 = new Card(Rank.TWO);
+        Card card5 = new Card(Rank.EIGHT);
+        Card card3 = new Card(Rank.NINE);
         Card card4 = new Card(Rank.EIGHT);
+        Card card6 = new Card(Rank.FIVE);
         List<Card> cardlist1 = new ArrayList<Card>();
         List<Card> cardlist2 = new ArrayList<Card>();
         cardlist1.add(card1);
         cardlist1.add(card2);
+        cardlist1.add(card5);
         cardlist2.add(card3);
         cardlist2.add(card4);
+        cardlist2.add(card6);
         int actual = game.compareHighCard(cardlist1, cardlist2);
         int expected = 2;
         assertEquals(actual, expected);
@@ -170,33 +174,41 @@ public class GameTest {
     void testComparePair() {
     	Card card1 = new Card(Rank.FIVE);
         Card card2 = new Card(Rank.FOUR);
-        Card card3 = new Card(Rank.TWO);
-        Card card4 = new Card(Rank.EIGHT);
+        Card card3 = new Card(Rank.FOUR);
+        Card card4 = new Card(Rank.TWO);
+        Card card5 = new Card(Rank.EIGHT);
+        Card card6 = new Card(Rank.TWO);
         List<Card> cardlist1 = new ArrayList<Card>();
         List<Card> cardlist2 = new ArrayList<Card>();
         cardlist1.add(card1);
         cardlist1.add(card2);
-        cardlist2.add(card3);
+        cardlist1.add(card3);
         cardlist2.add(card4);
+        cardlist2.add(card5);
+        cardlist2.add(card6);
         int actual = game.comparePair(cardlist1, cardlist2);
-        int expected = 2;
+        int expected = 1;
         assertEquals(actual, expected);
     }
     
     @Test
     void testComparePair1() {
-    	Card card1 = new Card(Rank.FIVE);
-        Card card2 = new Card(Rank.FIVE);
+    	Card card1 = new Card(Rank.TWO);
+        Card card2 = new Card(Rank.FOUR);
         Card card3 = new Card(Rank.TWO);
         Card card4 = new Card(Rank.EIGHT);
+        Card card5 = new Card(Rank.TWO);
+        Card card6 = new Card(Rank.TWO);
         List<Card> cardlist1 = new ArrayList<Card>();
         List<Card> cardlist2 = new ArrayList<Card>();
         cardlist1.add(card1);
         cardlist1.add(card2);
-        cardlist2.add(card3);
+        cardlist1.add(card3);
         cardlist2.add(card4);
+        cardlist2.add(card5);
+        cardlist2.add(card6);
         int actual = game.comparePair(cardlist1, cardlist2);
-        int expected = 1;
+        int expected = 2;
         assertEquals(actual, expected);
     }
     
@@ -290,11 +302,11 @@ public class GameTest {
     
     @Test
     void testComparebrelan2() {
-    	Card card1 = new Card(Rank.EIGHT);
+    	Card card1 = new Card(Rank.FOUR);
         Card card2 = new Card(Rank.NINE);
         Card card3 = new Card(Rank.FOUR);
         Card card4 = new Card(Rank.FOUR);
-        Card card5 = new Card(Rank.FOUR);
+        Card card5 = new Card(Rank.TWO);
         Card card6 = new Card(Rank.FOUR);
         List<Card> cardlist1 = new ArrayList<Card>();
         List<Card> cardlist2 = new ArrayList<Card>();
@@ -305,7 +317,7 @@ public class GameTest {
         cardlist2.add(card5);
         cardlist2.add(card6);
         int actual = game.compareBrelan(cardlist1, cardlist2);
-        int expected = 2;
+        int expected = 1;
         assertEquals(actual, expected);
     }
 
