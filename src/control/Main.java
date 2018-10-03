@@ -1,10 +1,5 @@
 package control;
 
-import java.util.List;
-
-import model.Card;
-import model.Rank;
-
 /**
  * @Project: Dojo
  * @Author: PS5-Groupe K

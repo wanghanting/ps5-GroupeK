@@ -44,4 +44,13 @@ public enum Rank {
         return null;
     }
 
+    public static Rank getRankS(String name){
+        for (Rank rank : Rank.values()){
+            if (rank.getName() == name){
+                return rank;
+            }
+        }
+        return null;
+    }
+
 }

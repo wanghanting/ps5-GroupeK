@@ -335,5 +335,3 @@ public class GameTest {
         assertTrue(game.haveDoublePair(cardlist1));
     }
 }
-
-

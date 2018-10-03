@@ -22,4 +22,8 @@ public class Card {
     public int getValue() {
         return rank.getValue();
     }
+
+    public String getName() {
+        return rank.getName();
+    }
 }
