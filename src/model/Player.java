@@ -46,14 +46,14 @@ public class Player {
         return handcard;
     }
 
-//    public void show() {
-//        System.out.println("Name: " + player1.getName());
-//        player1.showAllCard();
-//        System.out.println(" ");
-//        System.out.println("Name: " + player2.getName());
-//        player2.showAllCard();
-//        System.out.println(" ");
-//    }
+    public void show() {
+        System.out.println("Name: " + player1.getName());
+        player1.showAllCard();
+        System.out.println(" ");
+        System.out.println("Name: " + player2.getName());
+        player2.showAllCard();
+        System.out.println(" ");
+    }
 
     public void playerOneAddCard() {
         int sc = in.nextInt();
