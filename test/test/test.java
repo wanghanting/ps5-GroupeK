@@ -6,6 +6,7 @@ import model.Comparison;
 import model.Player;
 import model.Rank;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -132,43 +133,43 @@ class test {
           assertTrue(!comparison.equals(cardlist1, cardlist2));
       }
   
-//      @org.junit.jupiter.api.Test
-//      void testCompareHighCard() {
-//          Card card1 = new Card(Rank.TWO);
-//          Card card2 = new Card(Rank.FIVE);
-//          Card card3 = new Card(Rank.THREE);
-//          Card card4 = new Card(Rank.THREE);
-//          List<Card> cardlist1 = new ArrayList<Card>();
-//          List<Card> cardlist2 = new ArrayList<Card>();
-//          cardlist1.add(card1);
-//          cardlist1.add(card2);
-//          cardlist2.add(card3);
-//          cardlist2.add(card4);
-//          int actual = comparison.compareHighCard(cardlist1, cardlist2);
-//          int expected = 1;
-//          assertEquals(actual, expected);
-//      }
-  //
-//      @org.junit.jupiter.api.Test
-//      void testCompareHighCard1() {
-//          Card card1 = new Card(Rank.FIVE);
-//          Card card2 = new Card(Rank.FOUR);
-//          Card card5 = new Card(Rank.EIGHT);
-//          Card card3 = new Card(Rank.NINE);
-//          Card card4 = new Card(Rank.EIGHT);
-//          Card card6 = new Card(Rank.FIVE);
-//          List<Card> cardlist1 = new ArrayList<Card>();
-//          List<Card> cardlist2 = new ArrayList<Card>();
-//          cardlist1.add(card1);
-//          cardlist1.add(card2);
-//          cardlist1.add(card5);
-//          cardlist2.add(card3);
-//          cardlist2.add(card4);
-//          cardlist2.add(card6);
-//          int actual = comparison.compareHighCard(cardlist1, cardlist2);
-//          int expected = 2;
-//          assertEquals(actual, expected);
-//      }
+      @org.junit.jupiter.api.Test
+      void testCompareHighCardMainUneGagne() {
+          Card card1 = new Card(Rank.TWO);
+          Card card2 = new Card(Rank.FIVE);
+          Card card3 = new Card(Rank.THREE);
+          Card card4 = new Card(Rank.THREE);
+          List<Card> cardlist1 = new ArrayList<Card>();
+          List<Card> cardlist2 = new ArrayList<Card>();
+          cardlist1.add(card1);
+          cardlist1.add(card2);
+          cardlist2.add(card3);
+          cardlist2.add(card4);
+          int actual = comparison.compareHighCard(cardlist1, cardlist2);
+          int expected = 1;
+          assertEquals(actual, expected);
+      }
+  
+      @org.junit.jupiter.api.Test
+      void testCompareHighCardMainDeuxGagne() {
+          Card card1 = new Card(Rank.FIVE);
+          Card card2 = new Card(Rank.FOUR);
+          Card card5 = new Card(Rank.EIGHT);
+          Card card3 = new Card(Rank.NINE);
+          Card card4 = new Card(Rank.EIGHT);
+          Card card6 = new Card(Rank.FIVE);
+          List<Card> cardlist1 = new ArrayList<Card>();
+          List<Card> cardlist2 = new ArrayList<Card>();
+          cardlist1.add(card1);
+          cardlist1.add(card2);
+          cardlist1.add(card5);
+          cardlist2.add(card3);
+          cardlist2.add(card4);
+          cardlist2.add(card6);
+          int actual = comparison.compareHighCard(cardlist1, cardlist2);
+          int expected = 2;
+          assertEquals(actual, expected);
+      }
   //
 //      @org.junit.jupiter.api.Test
 //      void testPair() {
