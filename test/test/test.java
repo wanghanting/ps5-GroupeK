@@ -5,7 +5,14 @@ import model.Card;
 import model.Comparison;
 import model.Player;
 import model.Rank;
+
+import static org.junit.Assert.assertTrue;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
+
 
 /**
  * @Project: Dojo
@@ -28,20 +35,20 @@ class test {
         p2.addCard(new Card(Rank.getRank(sc2)));
         p2.showAllCard();
     }
-//   @Test
-//   void testEquals() {
-//      Card card1 = new Card(Rank.TWO);
-//      Card card2 = new Card(Rank.FIVE);
-//      Card card3 = new Card(Rank.FIVE);
-//      Card card4 = new Card(Rank.TWO);
-//      List<Card> cardlist1 = new ArrayList<Card>();
-//      List<Card> cardlist2 = new ArrayList<Card>();
-//      cardlist1.add(card1);
-//      cardlist1.add(card2);
-//      cardlist2.add(card3);
-//      cardlist2.add(card4);
-//      assertTrue(!comparison.equals(cardlist1, cardlist2));
-//  }
+   @Test
+   void testEquals() {
+      Card card1 = new Card(Rank.TWO);
+      Card card2 = new Card(Rank.FIVE);
+      Card card3 = new Card(Rank.FIVE);
+      Card card4 = new Card(Rank.TWO);
+      List<Card> cardlist1 = new ArrayList<Card>();
+      List<Card> cardlist2 = new ArrayList<Card>();
+      cardlist1.add(card1);
+      cardlist1.add(card2);
+      cardlist2.add(card3);
+      cardlist2.add(card4);
+      assertTrue(!comparison.equals(cardlist1, cardlist2));
+  }
 //    	@org.junit.jupiter.api.Test
 //      void testEquals1() {
 //       Card card1 = new Card(Rank.EIGHT);
