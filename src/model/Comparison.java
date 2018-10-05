@@ -43,47 +43,47 @@ public class Comparison {
 	}
 
 	// 0 = equal ; 1 = p1 win ; 2 = p2 win
-	public int comparePair(List<Card> handCard1, List<Card> handCard2) {
-		if (player1.havePair(handCard1) > 0 && player2.havePair(handCard2) == 0) {
-			System.out.println("player 1 gagne avec une pair de "+ player1.havePair(handCard1));
-			return 1;
-		} else if (player2.havePair(handCard2) > 0 && player1.havePair(handCard1) == 0) {
-			System.out.println("player 2 gagne avec une pair de "+ player2.havePair(handCard2));
-			return 2;
-		} else if (player2.havePair(handCard2) > 0 && player1.havePair(handCard1) > 0) {
-			if (player1.havePair(handCard1) > player2.havePair(handCard2)) {
-				System.out.println("player 1 gagne avec un pair de "+ player1.havePair(handCard1));
-				return 1;
-			} else if (player1.havePair(handCard1) < player2.havePair(handCard2)) {
-				System.out.println("player 2 gagne avec un pair de "+ player2.havePair(handCard2));
-				return 2;
-			} else {
-				return compareHighCard(handCard1, handCard2);
-			}
-		} else {
-			return compareHighCard(handCard1, handCard2);
-		}
-	}
+//	public int comparePair(List<Card> handCard1, List<Card> handCard2) {
+//		if (player1.havePair(handCard1) > 0 && player2.havePair(handCard2) == 0) {
+//			System.out.println("player 1 gagne avec une pair de "+ player1.havePair(handCard1));
+//			return 1;
+//		} else if (player2.havePair(handCard2) > 0 && player1.havePair(handCard1) == 0) {
+//			System.out.println("player 2 gagne avec une pair de "+ player2.havePair(handCard2));
+//			return 2;
+//		} else if (player2.havePair(handCard2) > 0 && player1.havePair(handCard1) > 0) {
+//			if (player1.havePair(handCard1) > player2.havePair(handCard2)) {
+//				System.out.println("player 1 gagne avec un pair de "+ player1.havePair(handCard1));
+//				return 1;
+//			} else if (player1.havePair(handCard1) < player2.havePair(handCard2)) {
+//				System.out.println("player 2 gagne avec un pair de "+ player2.havePair(handCard2));
+//				return 2;
+//			} else {
+//				return compareHighCard(handCard1, handCard2);
+//			}
+//		} else {
+//			return compareHighCard(handCard1, handCard2);
+//		}
+//	}
 
-	public int compareBrelan(List<Card> handCard1, List<Card> handCard2) {
-		if (player1.haveBrelan(handCard1) != 0 && player2.haveBrelan(handCard2) == 0) {
-			System.out.println("player1 gagne avec un brelan de "+ player1.haveBrelan(handCard1));
-			return 1;
-		} else if (player2.haveBrelan(handCard2) != 0 && player1.haveBrelan(handCard1) == 0) {
-			System.out.println("player2 gagne avec un brelan de "+ player2.haveBrelan(handCard2));
-			return 2;
-		} else {
-			return comparePair(handCard1, handCard2);
-		}
-	}
+//	public int compareBrelan(List<Card> handCard1, List<Card> handCard2) {
+//		if (player1.haveBrelan(handCard1) != 0 && player2.haveBrelan(handCard2) == 0) {
+//			System.out.println("player1 gagne avec un brelan de "+ player1.haveBrelan(handCard1));
+//			return 1;
+//		} else if (player2.haveBrelan(handCard2) != 0 && player1.haveBrelan(handCard1) == 0) {
+//			System.out.println("player2 gagne avec un brelan de "+ player2.haveBrelan(handCard2));
+//			return 2;
+//		} else {
+//			return comparePair(handCard1, handCard2);
+//		}
+//	}
 
-	public void compare() {
-		List<Card> handCard1 = player1.getHandcard();
-		List<Card> handCard2 = player2.getHandcard();
-		compareBrelan(handCard1, handCard2);
-		if(equals(handCard1, handCard2)) {
-			System.out.println("Egalité");
-		}
-	}
+//	public void compare() {
+//		List<Card> handCard1 = player1.getHandcard();
+//		List<Card> handCard2 = player2.getHandcard();
+//		compareBrelan(handCard1, handCard2);
+//		if(equals(handCard1, handCard2)) {
+//			System.out.println("Egalité");
+//		}
+//	}
 
 }
