@@ -585,5 +585,66 @@ class test {
           cardlist1.add(card4);
           cardlist1.add(card5);
           assertFalse(p1.haveFull(cardlist1));
-    }
+      }
+      
+      void testHaveQuinteFlush() {
+          Card card1 = new Card(Rank.EIGHT, Color.Coeur);
+          Card card2 = new Card(Rank.SEVEN, Color.Coeur);
+          Card card3 = new Card(Rank.SIX, Color.Coeur);
+          Card card4 = new Card(Rank.FIVE, Color.Coeur);
+          Card card5 = new Card(Rank.FOUR, Color.Coeur);
+          List<Card> cardlist1 = new ArrayList<Card>();
+          cardlist1.add(card1);
+          cardlist1.add(card2);
+          cardlist1.add(card3);
+          cardlist1.add(card4);
+          cardlist1.add(card5);
+          assertTrue(p1.haveQuinteFlush(cardlist1));
+      }
+      
+      void testNotHaveQuinteFlushButSuite() {
+          Card card1 = new Card(Rank.EIGHT, Color.Pique);
+          Card card2 = new Card(Rank.SEVEN, Color.Coeur);
+          Card card3 = new Card(Rank.SIX, Color.Coeur);
+          Card card4 = new Card(Rank.FIVE, Color.Coeur);
+          Card card5 = new Card(Rank.FOUR, Color.Coeur);
+          List<Card> cardlist1 = new ArrayList<Card>();
+          cardlist1.add(card1);
+          cardlist1.add(card2);
+          cardlist1.add(card3);
+          cardlist1.add(card4);
+          cardlist1.add(card5);
+          assertFalse(p1.haveQuinteFlush(cardlist1));
+      }
+      
+      void testNotHaveQuinteFlushButSameColor() {
+          Card card1 = new Card(Rank.TEN, Color.Coeur);
+          Card card2 = new Card(Rank.SEVEN, Color.Coeur);
+          Card card3 = new Card(Rank.SIX, Color.Coeur);
+          Card card4 = new Card(Rank.FIVE, Color.Coeur);
+          Card card5 = new Card(Rank.FOUR, Color.Coeur);
+          List<Card> cardlist1 = new ArrayList<Card>();
+          cardlist1.add(card1);
+          cardlist1.add(card2);
+          cardlist1.add(card3);
+          cardlist1.add(card4);
+          cardlist1.add(card5);
+          assertFalse(p1.haveQuinteFlush(cardlist1));
+      }
+      
+      void testNotHaveQuinteFlush() {
+          Card card1 = new Card(Rank.TEN, Color.Pique);
+          Card card2 = new Card(Rank.SEVEN, Color.Coeur);
+          Card card3 = new Card(Rank.SIX, Color.Coeur);
+          Card card4 = new Card(Rank.FIVE, Color.Coeur);
+          Card card5 = new Card(Rank.FOUR, Color.Coeur);
+          List<Card> cardlist1 = new ArrayList<Card>();
+          cardlist1.add(card1);
+          cardlist1.add(card2);
+          cardlist1.add(card3);
+          cardlist1.add(card4);
+          cardlist1.add(card5);
+          assertFalse(p1.haveQuinteFlush(cardlist1));
+      }
+      
 }
