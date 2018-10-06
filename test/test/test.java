@@ -31,15 +31,15 @@ class test {
     void testEqualsDeuxCartesMainsIdentiques() {
         Card card1 = new Card(Rank.TWO);
         Card card2 = new Card(Rank.FIVE);
-        Card card3 = new Card(Rank.FIVE);
-        Card card4 = new Card(Rank.TWO);
+        Card card3 = new Card(Rank.TWO);
+        Card card4 = new Card(Rank.FIVE);
         List<Card> cardlist1 = new ArrayList<Card>();
         List<Card> cardlist2 = new ArrayList<Card>();
         cardlist1.add(card1);
         cardlist1.add(card2);
         cardlist2.add(card3);
         cardlist2.add(card4);
-        assertTrue(!comparison.equals(cardlist1, cardlist2));
+        assertTrue(comparison.equals(cardlist1, cardlist2));
     }
 
     @Test
@@ -77,7 +77,7 @@ class test {
         cardlist2.add(card4);
         cardlist2.add(card5);
         cardlist2.add(card6);
-        assertTrue(!comparison.equals(cardlist1, cardlist2));
+        assertTrue(comparison.equals(cardlist1, cardlist2));
     }
 
     @Test
@@ -99,8 +99,8 @@ class test {
         cardlist2.add(card5);
         cardlist2.add(card6);
         cardlist2.add(card7);
-        cardlist1.add(card8);
-        assertTrue(!comparison.equals(cardlist1, cardlist2));
+        cardlist2.add(card8);
+        assertTrue(comparison.equals(cardlist1, cardlist2));
     }
 
     @Test
@@ -122,7 +122,7 @@ class test {
         cardlist2.add(card5);
         cardlist2.add(card6);
         cardlist2.add(card7);
-        cardlist1.add(card8);
+        cardlist2.add(card8);
         assertTrue(!comparison.equals(cardlist1, cardlist2));
     }
     @Test
@@ -258,6 +258,23 @@ class test {
     }
     
     @Test
+    void testNotHaveCarre() {
+    	 Card card1 = new Card(Rank.ACE);
+         Card card2 = new Card(Rank.TWO);
+         Card card3 = new Card(Rank.TWO);
+         Card card4 = new Card(Rank.TWO);
+         Card card5 = new Card(Rank.THREE);
+         List<Card> cardlist1 = new ArrayList<Card>();
+         cardlist1.add(card1);
+         cardlist1.add(card2);
+         cardlist1.add(card3);
+         cardlist1.add(card4);
+         cardlist1.add(card5);
+         assertTrue(!p1.haveCarre(cardlist1));
+    	
+    }
+    
+    @Test
     void testHaveBrelan() {
     	 Card card1 = new Card(Rank.THREE);
          Card card2 = new Card(Rank.TWO);
@@ -273,9 +290,26 @@ class test {
          assertTrue(p1.haveBrelan(cardlist1));
     	
     }
+    
+    @Test
+    void testNotHaveBrelan() {
+    	 Card card1 = new Card(Rank.THREE);
+         Card card2 = new Card(Rank.FOUR);
+         Card card3 = new Card(Rank.TWO);
+         Card card4 = new Card(Rank.TWO);
+         Card card5 = new Card(Rank.ACE);
+         List<Card> cardlist1 = new ArrayList<Card>();
+         cardlist1.add(card1);
+         cardlist1.add(card2);
+         cardlist1.add(card3);
+         cardlist1.add(card4);
+         cardlist1.add(card5);
+         assertTrue(!p1.haveBrelan(cardlist1));
+    	
+    }
   
     @Test
-    void testHavePaire() {
+    void testNotHavePaire() {
         Card card1 = new Card(Rank.EIGHT);
         Card card2 = new Card(Rank.NINE);
         Card card3 = new Card(Rank.TWO);
@@ -289,6 +323,24 @@ class test {
         cardlist1.add(card5);
         boolean actual = p1.havePair(cardlist1);
         boolean expected = false;
+        assertEquals(actual, expected);
+    }
+    
+    @Test
+    void testHavePaire() {
+        Card card1 = new Card(Rank.EIGHT);
+        Card card2 = new Card(Rank.TWO);
+        Card card3 = new Card(Rank.TWO);
+        Card card4 = new Card(Rank.THREE);
+        Card card5 = new Card(Rank.ACE);
+        List<Card> cardlist1 = new ArrayList<>();
+        cardlist1.add(card1);
+        cardlist1.add(card2);
+        cardlist1.add(card3);
+        cardlist1.add(card4);
+        cardlist1.add(card5);
+        boolean actual = p1.havePair(cardlist1);
+        boolean expected = true;
         assertEquals(actual, expected);
     }
 
@@ -306,6 +358,22 @@ class test {
         Co.add(card4);
         Co.add(card5);
         assertTrue(p1.haveSameColor(Co));
+    }
+    
+    @Test
+    void testNotHaveSameColor(){
+        Card card1 = new Card(Rank.EIGHT, Color.Pique);
+        Card card2 = new Card(Rank.NINE, Color.Coeur);
+        Card card3 = new Card(Rank.TWO, Color.Coeur);
+        Card card4 = new Card(Rank.THREE, Color.Coeur);
+        Card card5= new Card(Rank.KING, Color.Coeur);
+        List<Card> Co = new ArrayList<>();
+        Co.add(card1);
+        Co.add(card2);
+        Co.add(card3);
+        Co.add(card4);
+        Co.add(card5);
+        assertTrue(!p1.haveSameColor(Co));
     }
 
     @Test
