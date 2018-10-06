@@ -19,6 +19,7 @@ public class Player {
 	Player player2;
 	Scanner in = new Scanner(System.in);
 	private List<Integer> compteur = new ArrayList<Integer>();
+	int point = 0;
 
 	public Player(String name) {
 		this.name = name;
@@ -144,7 +145,20 @@ public class Player {
 
 	}
 	
-	public void paixu(List<Integer> handCard) {
-		Collections.sort(handCard);
+	public boolean HaveFive(List<Card> handCard1) {
+		Compteur(handCard1);
+		if (compteur.size() == 10) {
+			System.out.println(compteur.size());
+			return true;
+		}
+		return false;
+
 	}
+	
+	public List<Integer> paixu(List<Integer> handCard) {
+		Collections.sort(handCard);
+		Collections.reverse(handCard);
+		return handCard;
+	}
+	
 }
