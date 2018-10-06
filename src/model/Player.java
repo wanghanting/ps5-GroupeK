@@ -1,5 +1,6 @@
 package model;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -23,7 +24,7 @@ public class Player {
 
     public Player(String name) {
         this.name = name;
-        this.handcard = new ArrayList<>();
+        handcard = new ArrayList<>();
     }
 
     public void addCard(Card card) {
@@ -48,6 +49,11 @@ public class Player {
         return handcard;
     }
 
+//    public void handleCards() {
+//        Collections.sort(handcard);
+//        Collections.reverse(handcard);
+//    }
+
     public void show() {
         System.out.println("Name: " + player1.getName());
         player1.showAllCard();
@@ -57,23 +63,23 @@ public class Player {
         System.out.println(" ");
     }
 
-    public void playerOneAddCard() {
-        int sc = in.nextInt();
-        if (sc == 1) {
-            sc += 13;
-        }
-        Card c1 = new Card(Rank.getRank(sc));
-        player1.addCard(c1);
-    }
-
-    public void playerTwoAddCard() {
-        int sc1 = in.nextInt();
-        if (sc1 == 1) {
-            sc1 += 13;
-        }
-        Card c2 = new Card(Rank.getRank(sc1));
-        player2.addCard(c2);
-    }
+//    public void playerOneAddCard() {
+//        int sc = in.nextInt();
+//        if (sc == 1) {
+//            sc += 13;
+//        }
+//        Card c1 = new Card(Rank.getRank(sc));
+//        player1.addCard(c1);
+//    }
+//
+//    public void playerTwoAddCard() {
+//        int sc1 = in.nextInt();
+//        if (sc1 == 1) {
+//            sc1 += 13;
+//        }
+//        Card c2 = new Card(Rank.getRank(sc1));
+//        player2.addCard(c2);
+//    }
 
 
     public Card max(List<Card> handcard) {
@@ -162,17 +168,24 @@ public class Player {
         return true;
     }
 
-    public boolean haveSuit() {
-        if (compteur.get(0) == compteur.get(1) + 1
-                && compteur.get(1) == compteur.get(2) + 1
-                && compteur.get(2) == compteur.get(3) + 1
-                && compteur.get(3) == compteur.get(4) + 1) {
-            return true;
+    public boolean haveSuit(List<Card> handcard1) {
+        List<Integer> value = new ArrayList<>();
+        for (int i = 0; i < handcard1.size(); i++) {
+            value.add(handcard1.get(i).getValue());
         }
-        return false;
-    }
+        Collections.sort(value);
+        Collections.reverse(value);
+            if (value.get(0) == value.get(1) + 1
+                    && value.get(1) == value.get(2) + 1
+                    && value.get(2) == value.get(3) + 1
+                    && value.get(3) == value.get(4) + 1) {
+                return true;
+            }
+            return false;
+        }
+
     public boolean haveQuinteFlush (List<Card> handcard1) {
-    	if (haveSameColor(handcard1) && haveSuit()){
+    	if (haveSameColor(handcard1) && haveSuit(handcard1)){
     		return true;
     	}
     	else {
