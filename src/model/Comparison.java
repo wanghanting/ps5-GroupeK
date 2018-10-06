@@ -116,7 +116,15 @@ public class Comparison {
 //		}
 //	}
     public boolean equals(List<Card> handCard1, List<Card> handCard2) {
-        return handCard1.containsAll(handCard2) && handCard2.containsAll(handCard1);
+        List<String> name1 = new ArrayList<>();
+        List<String> name2 = new ArrayList<>();
+        for (int i = 0; i < handCard1.size(); i++) {
+            name1.add(handCard1.get(i).getName());
+        }
+        for (int i = 0; i < handCard2.size(); i++) {
+            name2.add(handCard2.get(i).getName());
+        }
+        return name1.containsAll(name2) && name2.containsAll(name1);
     }
 
 }
