@@ -21,6 +21,18 @@ public class Player {
     Scanner in = new Scanner(System.in);
     public List<Integer> compteur = new ArrayList<Integer>();
     int point = 0;
+    public static final int PAIREPOINT = 1000000;
+	public static final int PAIRE2POINT = 2000000;
+	public static final int BRELANPOINT = 3000000;
+	public static final int SUITEPOINT = 4000000;
+	public static final int COULEURPOINT = 5000000;
+	public static final int FULLPOINT = 6000000;
+	public static final int CARREPOINT = 7000000;
+	public static final int QFPOINT = 4000000;
+	
+	public static final int SBASEVALUE = 10000; // base for short value
+	public static final int LBASEVALUE = 100; // base for long value
+	
 
     public Player(String name) {
         this.name = name;
