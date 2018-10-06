@@ -540,6 +540,50 @@ class test {
           cardlist1.add(card4);
           cardlist1.add(card5);
           assertFalse(p1.haveDoublePair(cardlist1));
-
+      }
+      
+      void testHaveFull() {
+          Card card1 = new Card(Rank.FOUR);
+          Card card2 = new Card(Rank.NINE);
+          Card card3 = new Card(Rank.FOUR);
+          Card card4 = new Card(Rank.NINE);
+          Card card5 = new Card(Rank.FOUR);
+          List<Card> cardlist1 = new ArrayList<Card>();
+          cardlist1.add(card1);
+          cardlist1.add(card2);
+          cardlist1.add(card3);
+          cardlist1.add(card4);
+          cardlist1.add(card5);
+          assertTrue(p1.haveFull(cardlist1));
+      }
+      
+      void testNotHaveFullButBrelan() {
+          Card card1 = new Card(Rank.FOUR);
+          Card card2 = new Card(Rank.NINE);
+          Card card3 = new Card(Rank.FOUR);
+          Card card4 = new Card(Rank.THREE);
+          Card card5 = new Card(Rank.FOUR);
+          List<Card> cardlist1 = new ArrayList<Card>();
+          cardlist1.add(card1);
+          cardlist1.add(card2);
+          cardlist1.add(card3);
+          cardlist1.add(card4);
+          cardlist1.add(card5);
+          assertFalse(p1.haveFull(cardlist1));
+      }
+      
+      void testNotHaveFullButAllSameCard() {
+          Card card1 = new Card(Rank.FOUR);
+          Card card2 = new Card(Rank.FOUR);
+          Card card3 = new Card(Rank.FOUR);
+          Card card4 = new Card(Rank.FOUR);
+          Card card5 = new Card(Rank.FOUR);
+          List<Card> cardlist1 = new ArrayList<Card>();
+          cardlist1.add(card1);
+          cardlist1.add(card2);
+          cardlist1.add(card3);
+          cardlist1.add(card4);
+          cardlist1.add(card5);
+          assertFalse(p1.haveFull(cardlist1));
     }
 }
