@@ -171,7 +171,7 @@ public class Player {
         }
         return false;
     }
-    boolean haveQuinteFlush (List<Card> handcard1) {
+    public boolean haveQuinteFlush (List<Card> handcard1) {
     	if (haveSameColor(handcard1) && haveSuit()){
     		return true;
     	}
