@@ -125,7 +125,7 @@ class test {
         assertTrue(!comparison.equals(cardlist1, cardlist2));
     }
     @Test
-    void testCompare() {
+    void testCompareBrelanBrelan() {
     	Card card1 = new Card(Rank.EIGHT);
         Card card2 = new Card(Rank.EIGHT);
         Card card3 = new Card(Rank.EIGHT);
@@ -150,13 +150,13 @@ class test {
     }
     
     @Test
-    void testCompare1() {
+    void testCompareEgale() {
     	Card card1 = new Card(Rank.NINE);
         Card card2 = new Card(Rank.TWO);
         Card card3 = new Card(Rank.THREE);
         Card card4 = new Card(Rank.EIGHT);
         Card card5 = new Card(Rank.NINE);
-        Card card6 = new Card(Rank.NINE);
+        Card card6 = new Card(Rank.EIGHT);
         Card card7 = new Card(Rank.TWO);
         Card card8 = new Card(Rank.THREE);
         List<Card> handCard1 = new ArrayList<Card>();
@@ -190,7 +190,7 @@ class test {
     }
     
     @Test
-    void testHaveBerlan() {
+    void testHaveBrelan() {
     	 Card card1 = new Card(Rank.THREE);
          Card card2 = new Card(Rank.TWO);
          Card card3 = new Card(Rank.TWO);
@@ -256,7 +256,7 @@ class test {
 //      }
     //
     @Test
-    void testHavePair() {
+    void testHavePaire() {
         Card card1 = new Card(Rank.EIGHT);
         Card card2 = new Card(Rank.NINE);
         Card card3 = new Card(Rank.TWO);
@@ -288,7 +288,7 @@ class test {
     }
 
     @Test
-    void testHaveSuit() {
+    void testHaveSuite() {
         Player player = new Player("player");
         Card card1 = new Card(Rank.SIX);
         Card card2 = new Card(Rank.FIVE);
