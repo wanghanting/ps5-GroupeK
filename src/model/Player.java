@@ -144,16 +144,6 @@ public class Player {
 
     }
 
-    public boolean HaveFive(List<Card> handCard1) {
-        Compteur(handCard1);
-        if (compteur.size() == 10) {
-            System.out.println(compteur.size());
-            return true;
-        }
-        return false;
-
-    }
-
     public List<Integer> SortDecreasing(List<Integer> handCard) {
         Collections.sort(handCard);
         Collections.reverse(handCard);
