@@ -7,6 +7,7 @@ import model.*;
 //import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -318,7 +319,7 @@ class test {
 //        System.out.println(p1.);
 //        player.paixu(player.compteur);
 //        assertTrue(player.haveSuit());
-//    }
+    }
         //
 //      @Test
 //      void testMax() {
@@ -495,20 +496,50 @@ class test {
 //          assertEquals(actual, expected);
 //      }
         //
-//      @org.junit.jupiter.api.Test
-//      void testHaveDoublePair() {
-//       Card card1 = new Card(Rank.FOUR);
-//          Card card2 = new Card(Rank.NINE);
-//          Card card3 = new Card(Rank.FOUR);
-//          Card card4 = new Card(Rank.NINE);
-//          List<Card> cardlist1 = new ArrayList<Card>();
-//          cardlist1.add(card1);
-//          cardlist1.add(card2);
-//          cardlist1.add(card3);
-//          cardlist1.add(card4);
-//          assertTrue(comparison.haveDoublePair(cardlist1));
-//      }
-        //}
+//      @Test
+      void testHaveDoublePair() {
+          Card card1 = new Card(Rank.FOUR);
+          Card card2 = new Card(Rank.NINE);
+          Card card3 = new Card(Rank.FOUR);
+          Card card4 = new Card(Rank.NINE);
+          Card card5 = new Card(Rank.ACE);
+          List<Card> cardlist1 = new ArrayList<Card>();
+          cardlist1.add(card1);
+          cardlist1.add(card2);
+          cardlist1.add(card3);
+          cardlist1.add(card4);
+          cardlist1.add(card5);
+          assertTrue(p1.haveDoublePair(cardlist1));
+    }
+      
+      void testHaveDoublePairButFull() {
+          Card card1 = new Card(Rank.FOUR);
+          Card card2 = new Card(Rank.NINE);
+          Card card3 = new Card(Rank.FOUR);
+          Card card4 = new Card(Rank.NINE);
+          Card card5 = new Card(Rank.FOUR);
+          List<Card> cardlist1 = new ArrayList<Card>();
+          cardlist1.add(card1);
+          cardlist1.add(card2);
+          cardlist1.add(card3);
+          cardlist1.add(card4);
+          cardlist1.add(card5);
+          assertTrue(p1.haveDoublePair(cardlist1));
+    }
+      
+      void testNotHaveDoublePairButOnePair() {
+          Card card1 = new Card(Rank.FOUR);
+          Card card2 = new Card(Rank.NINE);
+          Card card3 = new Card(Rank.FOUR);
+          Card card4 = new Card(Rank.QUEEN);
+          Card card5 = new Card(Rank.KING);
+          List<Card> cardlist1 = new ArrayList<Card>();
+          cardlist1.add(card1);
+          cardlist1.add(card2);
+          cardlist1.add(card3);
+          cardlist1.add(card4);
+          cardlist1.add(card5);
+          assertFalse(p1.haveDoublePair(cardlist1));
 
     }
 }
