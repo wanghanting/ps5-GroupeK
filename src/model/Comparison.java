@@ -44,7 +44,6 @@ public class Comparison {
                     } else if (handCard1.get(i).getValue() < handCard2.get(i).getValue()) {
                         return 2;
                     } else {
-//                        System.out.println("!!!");
                         return 0;
                     }
                 }

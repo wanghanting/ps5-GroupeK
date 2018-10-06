@@ -423,7 +423,8 @@ class test {
           cardlist1.add(card5);
           assertTrue(!p1.haveDoublePair(cardlist1));
     }
-      
+
+    @Test
       void testNotHaveDoublePairButOnePair() {
           Card card1 = new Card(Rank.FOUR);
           Card card2 = new Card(Rank.NINE);
@@ -438,7 +439,8 @@ class test {
           cardlist1.add(card5);
           assertFalse(p1.haveDoublePair(cardlist1));
       }
-      
+
+      @Test
       void testHaveFull() {
           Card card1 = new Card(Rank.FOUR);
           Card card2 = new Card(Rank.NINE);
@@ -453,7 +455,8 @@ class test {
           cardlist1.add(card5);
           assertTrue(p1.haveFull(cardlist1));
       }
-      
+
+      @Test
       void testNotHaveFullButBrelan() {
           Card card1 = new Card(Rank.FOUR);
           Card card2 = new Card(Rank.NINE);
@@ -468,7 +471,8 @@ class test {
           cardlist1.add(card5);
           assertFalse(p1.haveFull(cardlist1));
       }
-      
+
+      @Test
       void testNotHaveFullButAllSameCard() {
           Card card1 = new Card(Rank.FOUR);
           Card card2 = new Card(Rank.FOUR);
@@ -484,7 +488,8 @@ class test {
           assertFalse(p1.haveFull(cardlist1));
 
       }
-      
+
+      @Test
       void testHaveQuinteFlush() {
           Card card1 = new Card(Rank.EIGHT, Color.Coeur);
           Card card2 = new Card(Rank.SEVEN, Color.Coeur);
@@ -499,7 +504,8 @@ class test {
           cardlist1.add(card5);
           assertTrue(p1.haveQuinteFlush(cardlist1));
       }
-      
+
+      @Test
       void testNotHaveQuinteFlushButSuite() {
           Card card1 = new Card(Rank.EIGHT, Color.Pique);
           Card card2 = new Card(Rank.SEVEN, Color.Coeur);
@@ -514,7 +520,8 @@ class test {
           cardlist1.add(card5);
           assertFalse(p1.haveQuinteFlush(cardlist1));
       }
-      
+
+      @Test
       void testNotHaveQuinteFlushButSameColor() {
           Card card1 = new Card(Rank.TEN, Color.Coeur);
           Card card2 = new Card(Rank.SEVEN, Color.Coeur);
@@ -529,7 +536,8 @@ class test {
           cardlist1.add(card5);
           assertFalse(p1.haveQuinteFlush(cardlist1));
       }
-      
+
+      @Test
       void testNotHaveQuinteFlush() {
           Card card1 = new Card(Rank.TEN, Color.Pique);
           Card card2 = new Card(Rank.SEVEN, Color.Coeur);

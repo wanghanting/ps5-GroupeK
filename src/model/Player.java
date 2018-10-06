@@ -49,11 +49,6 @@ public class Player {
         return handcard;
     }
 
-//    public void handleCards() {
-//        Collections.sort(handcard);
-//        Collections.reverse(handcard);
-//    }
-
     public void show() {
         System.out.println("Name: " + player1.getName());
         player1.showAllCard();
