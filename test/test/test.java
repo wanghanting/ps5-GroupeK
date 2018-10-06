@@ -130,20 +130,24 @@ class test {
         Card card2 = new Card(Rank.EIGHT);
         Card card3 = new Card(Rank.EIGHT);
         Card card4 = new Card(Rank.TWO);
-        Card card5 = new Card(Rank.TWO);
+        Card card5 = new Card(Rank.ACE);
         Card card6 = new Card(Rank.TWO);
         Card card7 = new Card(Rank.TWO);
-        Card card8 = new Card(Rank.THREE);
+        Card card8 = new Card(Rank.TWO);
+        Card card9 = new Card(Rank.THREE);
+        Card card10 = new Card(Rank.ACE);
         List<Card> handCard1 = new ArrayList<Card>();
         List<Card> handCard2 = new ArrayList<Card>();
         handCard1.add(card1);
         handCard1.add(card2);
         handCard1.add(card3);
         handCard1.add(card4);
-        handCard2.add(card5);
+        handCard1.add(card5);
         handCard2.add(card6);
         handCard2.add(card7);
         handCard2.add(card8);
+        handCard2.add(card9);
+        handCard2.add(card10);
         int expected = 1;
         assertEquals(expected,comparison.compare(handCard1, handCard2));
     	
@@ -155,20 +159,24 @@ class test {
         Card card2 = new Card(Rank.TWO);
         Card card3 = new Card(Rank.THREE);
         Card card4 = new Card(Rank.EIGHT);
-        Card card5 = new Card(Rank.NINE);
-        Card card6 = new Card(Rank.EIGHT);
-        Card card7 = new Card(Rank.TWO);
-        Card card8 = new Card(Rank.THREE);
+        Card card5 = new Card(Rank.TWO);
+        Card card6 = new Card(Rank.NINE);
+        Card card7 = new Card(Rank.EIGHT);
+        Card card8 = new Card(Rank.TWO);
+        Card card9 = new Card(Rank.THREE);
+        Card card10 = new Card(Rank.TWO);
         List<Card> handCard1 = new ArrayList<Card>();
         List<Card> handCard2 = new ArrayList<Card>();
         handCard1.add(card1);
         handCard1.add(card2);
         handCard1.add(card3);
         handCard1.add(card4);
-        handCard2.add(card5);
+        handCard1.add(card5);
         handCard2.add(card6);
         handCard2.add(card7);
         handCard2.add(card8);
+        handCard2.add(card9);
+        handCard2.add(card10);
         int expected = 0;
         assertEquals(expected,comparison.compare(handCard1, handCard2));
     	
@@ -180,11 +188,13 @@ class test {
          Card card2 = new Card(Rank.TWO);
          Card card3 = new Card(Rank.TWO);
          Card card4 = new Card(Rank.TWO);
+         Card card5 = new Card(Rank.THREE);
          List<Card> cardlist1 = new ArrayList<Card>();
          cardlist1.add(card1);
          cardlist1.add(card2);
          cardlist1.add(card3);
          cardlist1.add(card4);
+         cardlist1.add(card5);
          assertTrue(p1.haveCarre(cardlist1));
     	
     }
@@ -195,11 +205,13 @@ class test {
          Card card2 = new Card(Rank.TWO);
          Card card3 = new Card(Rank.TWO);
          Card card4 = new Card(Rank.TWO);
+         Card card5 = new Card(Rank.ACE);
          List<Card> cardlist1 = new ArrayList<Card>();
          cardlist1.add(card1);
          cardlist1.add(card2);
          cardlist1.add(card3);
          cardlist1.add(card4);
+         cardlist1.add(card5);
          assertTrue(p1.haveBrelan(cardlist1));
     	
     }
@@ -261,11 +273,13 @@ class test {
         Card card2 = new Card(Rank.NINE);
         Card card3 = new Card(Rank.TWO);
         Card card4 = new Card(Rank.THREE);
+        Card card5 = new Card(Rank.ACE);
         List<Card> cardlist1 = new ArrayList<>();
         cardlist1.add(card1);
         cardlist1.add(card2);
         cardlist1.add(card3);
         cardlist1.add(card4);
+        cardlist1.add(card5);
         boolean actual = p1.havePair(cardlist1);
         boolean expected = false;
         assertEquals(actual, expected);
