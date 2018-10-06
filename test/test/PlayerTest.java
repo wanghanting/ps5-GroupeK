@@ -331,7 +331,7 @@ class PlayerTest {
 
 
 	@Test
-	void testPoint_Havepair() {
+	void testPoint_pair() {
 		Card card1 = new Card(Rank.TEN, Color.Pique);
 		Card card2 = new Card(Rank.TEN, Color.Coeur);
 		Card card3 = new Card(Rank.SIX, Color.Coeur);
@@ -344,12 +344,12 @@ class PlayerTest {
 		cardlist1.add(card4);
 		cardlist1.add(card5);
 		int expected = 1100028;
-		int actuel = p1.point(cardlist1);
+		int actuel = p1.point_pair(cardlist1);
 		assertEquals(expected, actuel);
 	}
 
 	@Test
-	void testPoint_Havepair2() {
+	void testPoint_pair2() {
 		Card card1 = new Card(Rank.TEN, Color.Pique);
 		Card card2 = new Card(Rank.TEN, Color.Coeur);
 		Card card3 = new Card(Rank.EIGHT, Color.Coeur);
@@ -362,8 +362,63 @@ class PlayerTest {
 		cardlist1.add(card4);
 		cardlist1.add(card5);
 		int expected = 1100067;
-		int actuel = p1.point(cardlist1);
+		int actuel = p1.point_pair(cardlist1);
 		assertEquals(expected, actuel);
 	}
+	
+	@Test
+	void testPoint_brelan() {
+		Card card1 = new Card(Rank.THREE, Color.Pique);
+		Card card2 = new Card(Rank.THREE, Color.Coeur);
+		Card card3 = new Card(Rank.EIGHT, Color.Coeur);
+		Card card4 = new Card(Rank.TWO, Color.Coeur);
+		Card card5 = new Card(Rank.THREE, Color.Coeur);
+		List<Card> cardlist1 = new ArrayList<Card>();
+		cardlist1.add(card1);
+		cardlist1.add(card2);
+		cardlist1.add(card3);
+		cardlist1.add(card4);
+		cardlist1.add(card5);
+		int expected = 3030065;
+		int actuel = p1.point_brelan(cardlist1);
+		assertEquals(expected, actuel);
+	}
+	
+	@Test
+	void testPoint_autrebrelan() {
+		Card card1 = new Card(Rank.ACE, Color.Pique);
+		Card card2 = new Card(Rank.ACE, Color.Coeur);
+		Card card3 = new Card(Rank.ACE, Color.Coeur);
+		Card card4 = new Card(Rank.FOUR, Color.Coeur);
+		Card card5 = new Card(Rank.QUEEN, Color.Coeur);
+		List<Card> cardlist1 = new ArrayList<Card>();
+		cardlist1.add(card1);
+		cardlist1.add(card2);
+		cardlist1.add(card3);
+		cardlist1.add(card4);
+		cardlist1.add(card5);
+		int expected = 3141028;
+		int actuel = p1.point_brelan(cardlist1);
+		assertEquals(expected, actuel);
+	}
+	
+	@Test
+	void testPoint_encorebrelan() {
+		Card card1 = new Card(Rank.NINE, Color.Pique);
+		Card card2 = new Card(Rank.NINE, Color.Coeur);
+		Card card3 = new Card(Rank.NINE, Color.Coeur);
+		Card card4 = new Card(Rank.ACE, Color.Coeur);
+		Card card5 = new Card(Rank.KING, Color.Coeur);
+		List<Card> cardlist1 = new ArrayList<Card>();
+		cardlist1.add(card1);
+		cardlist1.add(card2);
+		cardlist1.add(card3);
+		cardlist1.add(card4);
+		cardlist1.add(card5);
+		int expected = 3096144;
+		int actuel = p1.point_brelan(cardlist1);
+		assertEquals(expected, actuel);
+	}
+	
 
 }

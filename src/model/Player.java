@@ -193,10 +193,23 @@ public class Player {
 		}
 	}
 
-	public int point(List<Card> handlist) {
+	public int point_pair(List<Card> handlist) {
 		if (havePair(handlist)) {
 			int svalue = (int) (Math.log(compteur.get(0))/Math.log(2))+2;
 			point = PAIREPOINT + svalue * SBASEVALUE;
+			if (point == 0)
+				return point;
+				for (Card find : handlist)
+					if (find.getRank().longValue() != compteur.get(0))
+						point += find.getRank().longValue();
+		}
+		return point;
+	}
+	
+	public int point_brelan(List<Card> handlist) {
+		if (haveBrelan(handlist)) {
+			int svalue = (int) (Math.log(compteur.get(0))/Math.log(2))+2;
+			point = BRELANPOINT + svalue * SBASEVALUE;
 			if (point == 0)
 				return point;
 				for (Card find : handlist)
