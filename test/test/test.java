@@ -126,6 +126,63 @@ class test {
         assertTrue(!comparison.equals(cardlist1, cardlist2));
     }
     @Test
+    void testComparePairPair() {
+    	Card card1 = new Card(Rank.EIGHT);
+        Card card2 = new Card(Rank.EIGHT);
+        Card card3 = new Card(Rank.KING);
+        Card card4 = new Card(Rank.TWO);
+        Card card5 = new Card(Rank.ACE);
+        Card card6 = new Card(Rank.TWO);
+        Card card7 = new Card(Rank.TWO);
+        Card card8 = new Card(Rank.KING);
+        Card card9 = new Card(Rank.THREE);
+        Card card10 = new Card(Rank.ACE);
+        List<Card> handCard1 = new ArrayList<Card>();
+        List<Card> handCard2 = new ArrayList<Card>();
+        handCard1.add(card1);
+        handCard1.add(card2);
+        handCard1.add(card3);
+        handCard1.add(card4);
+        handCard1.add(card5);
+        handCard2.add(card6);
+        handCard2.add(card7);
+        handCard2.add(card8);
+        handCard2.add(card9);
+        handCard2.add(card10);
+        int expected = 1;
+        assertEquals(expected,comparison.compare(handCard1, handCard2));
+    	
+    }
+    @Test
+    void testCompareCarreCarre() {
+    	Card card1 = new Card(Rank.EIGHT);
+        Card card2 = new Card(Rank.EIGHT);
+        Card card3 = new Card(Rank.EIGHT);
+        Card card4 = new Card(Rank.EIGHT);
+        Card card5 = new Card(Rank.ACE);
+        Card card6 = new Card(Rank.TWO);
+        Card card7 = new Card(Rank.TWO);
+        Card card8 = new Card(Rank.TWO);
+        Card card9 = new Card(Rank.TWO);
+        Card card10 = new Card(Rank.ACE);
+        List<Card> handCard1 = new ArrayList<Card>();
+        List<Card> handCard2 = new ArrayList<Card>();
+        handCard1.add(card1);
+        handCard1.add(card2);
+        handCard1.add(card3);
+        handCard1.add(card4);
+        handCard1.add(card5);
+        handCard2.add(card6);
+        handCard2.add(card7);
+        handCard2.add(card8);
+        handCard2.add(card9);
+        handCard2.add(card10);
+        int expected = 1;
+        assertEquals(expected,comparison.compare(handCard1, handCard2));
+    	
+    }
+    
+    @Test
     void testCompareBrelanBrelan() {
     	Card card1 = new Card(Rank.EIGHT);
         Card card2 = new Card(Rank.EIGHT);
@@ -586,4 +643,5 @@ class test {
           cardlist1.add(card5);
           assertFalse(p1.haveFull(cardlist1));
     }
+      
 }
