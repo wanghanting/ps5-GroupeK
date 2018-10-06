@@ -159,13 +159,29 @@ class PlayerTest {
 	        Card card3 = new Card(Rank.TWO);
 	        Card card4 = new Card(Rank.THREE);
 	        Card card5 = new Card(Rank.FOUR);
-	        List<Card> cardlist1 = new ArrayList<>();
-	        cardlist1.add(card1);
-	        cardlist1.add(card2);
-	        cardlist1.add(card3);
-	        cardlist1.add(card4);
-	        cardlist1.add(card5);
-	        assertTrue(p1.haveSuit(cardlist1));
+	        List<Card> handcard = new ArrayList<>();
+	        handcard.add(card1);
+	        handcard.add(card2);
+	        handcard.add(card3);
+	        handcard.add(card4);
+	        handcard.add(card5);
+	        assertTrue(p1.haveSuit(handcard));
+	    }
+	    
+	    @Test
+	    void testNoHaveSuite() {
+	        Card card1 = new Card(Rank.TEN);
+	        Card card2 = new Card(Rank.FIVE);
+	        Card card3 = new Card(Rank.TWO);
+	        Card card4 = new Card(Rank.THREE);
+	        Card card5 = new Card(Rank.FOUR);
+	        List<Card> handcard = new ArrayList<>();
+	        handcard.add(card1);
+	        handcard.add(card2);
+	        handcard.add(card3);
+	        handcard.add(card4);
+	        handcard.add(card5);
+	        assertFalse(p1.haveSuit(handcard));
 	    }
 	        
 	      @Test
@@ -278,7 +294,7 @@ class PlayerTest {
 	          cardlist1.add(card3);
 	          cardlist1.add(card4);
 	          cardlist1.add(card5);
-		assertTrue(p1.haveQuinteFlush(cardlist1));
+		      assertTrue(p1.haveQuinteFlush(cardlist1));
 	      }
 
 	      @Test

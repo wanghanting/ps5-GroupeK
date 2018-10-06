@@ -174,16 +174,17 @@ public class Player {
 	public boolean haveSuit(List<Card> handcard1) {
 		List<Integer> value = new ArrayList<>();
 		for (int i = 0; i < handcard1.size(); i++) {
-			value.add(handcard1.get(i).getValue());
+			value.add(handcard1.get(i).getRank().shortValue());
 		}
-		Collections.sort(value);
-		Collections.reverse(value);
+		SortDecreasing(value);
 		if (value.get(0) == value.get(1) + 1 && value.get(1) == value.get(2) + 1 && value.get(2) == value.get(3) + 1
 				&& value.get(3) == value.get(4) + 1) {
 			return true;
 		}
 		return false;
 	}
+
+
 
 	public boolean haveQuinteFlush(List<Card> handcard1) {
 		if (haveSameColor(handcard1) && haveSuit(handcard1)) {
@@ -195,26 +196,26 @@ public class Player {
 
 	public int point_pair(List<Card> handlist) {
 		if (havePair(handlist)) {
-			int svalue = (int) (Math.log(compteur.get(0))/Math.log(2))+2;
+			int svalue = (int) (Math.log(compteur.get(0)) / Math.log(2)) + 2;
 			point = PAIREPOINT + svalue * SBASEVALUE;
 			if (point == 0)
 				return point;
-				for (Card find : handlist)
-					if (find.getRank().longValue() != compteur.get(0))
-						point += find.getRank().longValue();
+			for (Card find : handlist)
+				if (find.getRank().longValue() != compteur.get(0))
+					point += find.getRank().longValue();
 		}
 		return point;
 	}
-	
+
 	public int point_brelan(List<Card> handlist) {
 		if (haveBrelan(handlist)) {
-			int svalue = (int) (Math.log(compteur.get(0))/Math.log(2))+2;
+			int svalue = (int) (Math.log(compteur.get(0)) / Math.log(2)) + 2;
 			point = BRELANPOINT + svalue * SBASEVALUE;
 			if (point == 0)
 				return point;
-				for (Card find : handlist)
-					if (find.getRank().longValue() != compteur.get(0))
-						point += find.getRank().longValue();
+			for (Card find : handlist)
+				if (find.getRank().longValue() != compteur.get(0))
+					point += find.getRank().longValue();
 		}
 		return point;
 	}
