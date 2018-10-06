@@ -34,8 +34,8 @@ public class Comparison {
                     value1.add(handCard1.get(i).getValue());
                     value2.add(handCard2.get(i).getValue());
                 }
-                player1.paixu(value1);
-                player2.paixu(value2);
+                player1.SortDecreasing(value1);
+                player2.SortDecreasing(value2);
 //                System.out.println(value1);
 //                System.out.println(value2);
                 for (int i = 0; i < value1.size(); i++) {

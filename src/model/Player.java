@@ -154,7 +154,7 @@ public class Player {
 
     }
 
-    public List<Integer> paixu(List<Integer> handCard) {
+    public List<Integer> SortDecreasing(List<Integer> handCard) {
         Collections.sort(handCard);
         Collections.reverse(handCard);
         return handCard;
