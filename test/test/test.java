@@ -1,10 +1,6 @@
 package test;
 
-import model.Card;
-
-import model.Comparison;
-import model.Player;
-import model.Rank;
+import model.*;
 
 //import static org.junit.Assert.assertEquals;
 //import static org.junit.Assert.assertFalse;
@@ -29,16 +25,6 @@ class test {
     Comparison comparison = new Comparison();
     Player p1 = new Player("p1");
     Player p2 = new Player("p2");
-
-//    @Test
-//    void testAddCard() {
-//        int sc1 = 14;
-//        p1.addCard(new Card(Rank.getRank(sc1)));
-//        p1.showAllCard();
-//        int sc2 = 2;
-//        p2.addCard(new Card(Rank.getRank(sc2)));
-//        p2.showAllCard();
-//    }
 
     @Test
     void testEqualsDeuxCartesMainsIdentiques() {
@@ -152,7 +138,7 @@ class test {
         List<Card> handCard2 = new ArrayList<Card>();
         handCard1.add(card1);
         handCard1.add(card2);
-        handCard1.add(card3  );
+        handCard1.add(card3);
         handCard1.add(card4);
         handCard2.add(card5);
         handCard2.add(card6);
@@ -170,14 +156,14 @@ class test {
         Card card3 = new Card(Rank.THREE);
         Card card4 = new Card(Rank.EIGHT);
         Card card5 = new Card(Rank.NINE);
-        Card card6 = new Card(Rank.TEN);
+        Card card6 = new Card(Rank.NINE);
         Card card7 = new Card(Rank.TWO);
         Card card8 = new Card(Rank.THREE);
         List<Card> handCard1 = new ArrayList<Card>();
         List<Card> handCard2 = new ArrayList<Card>();
         handCard1.add(card1);
         handCard1.add(card2);
-        handCard1.add(card3  );
+        handCard1.add(card3);
         handCard1.add(card4);
         handCard2.add(card5);
         handCard2.add(card6);
@@ -275,7 +261,7 @@ class test {
         Card card2 = new Card(Rank.NINE);
         Card card3 = new Card(Rank.TWO);
         Card card4 = new Card(Rank.THREE);
-        List<Card> cardlist1 = new ArrayList<Card>();
+        List<Card> cardlist1 = new ArrayList<>();
         cardlist1.add(card1);
         cardlist1.add(card2);
         cardlist1.add(card3);
@@ -284,8 +270,43 @@ class test {
         boolean expected = false;
         assertEquals(actual, expected);
     }
-    //
-//      @org.junit.jupiter.api.Test
+
+    @Test
+    void testHaveSameColor(){
+        Card card1 = new Card(Rank.EIGHT, Color.Coeur);
+        Card card2 = new Card(Rank.NINE, Color.Coeur);
+        Card card3 = new Card(Rank.TWO, Color.Coeur);
+        Card card4 = new Card(Rank.THREE, Color.Coeur);
+        Card card5= new Card(Rank.KING, Color.Coeur);
+        List<Card> Co = new ArrayList<>();
+        Co.add(card1);
+        Co.add(card2);
+        Co.add(card3);
+        Co.add(card4);
+        Co.add(card5);
+        assertTrue(p1.haveSameColor(Co));
+    }
+
+    @Test
+    void testHaveSuit() {
+        Player player = new Player("player");
+        Card card1 = new Card(Rank.SIX);
+        Card card2 = new Card(Rank.FIVE);
+        Card card3 = new Card(Rank.TWO);
+        Card card4 = new Card(Rank.THREE);
+        Card card5 = new Card(Rank.FOUR);
+        player.addCard(card1);
+        player.addCard(card2);
+        player.addCard(card3);
+        player.addCard(card4);
+        player.addCard(card5);
+//        player.Compteur(player.getHandcard());
+//        System.out.println(p1.);
+//        player.paixu(player.compteur);
+//        assertTrue(player.haveSuit());
+//    }
+        //
+//      @Test
 //      void testMax() {
 //       Card card1 = new Card(Rank.JACK);
 //          Card card2 = new Card(Rank.EIGHT);
@@ -296,7 +317,7 @@ class test {
 //          Card expected = card1;
 //          assertEquals(actual, expected);
 //      }
-    //
+        //
 //      @org.junit.jupiter.api.Test
 //      void testMax1() {
 //       Card card1 = new Card(Rank.SEVEN);
@@ -308,7 +329,7 @@ class test {
 //          Card expected = card2;
 //          assertEquals(actual, expected);
 //      }
-    //
+        //
 //      @org.junit.jupiter.api.Test
 //      void testComparePair() {
 //       Card card1 = new Card(Rank.FIVE);
@@ -329,7 +350,7 @@ class test {
 //          int expected = 1;
 //          assertEquals(actual, expected);
 //      }
-    //
+        //
 //      @org.junit.jupiter.api.Test
 //      void testComparePair1() {
 //       Card card1 = new Card(Rank.TWO);
@@ -350,7 +371,7 @@ class test {
 //          int expected = 2;
 //          assertEquals(actual, expected);
 //      }
-    //
+        //
 //      @org.junit.jupiter.api.Test
 //      void testComparePair2() {
 //       Card card1 = new Card(Rank.FIVE);
@@ -367,7 +388,7 @@ class test {
 //          int expected = 1;
 //          assertEquals(actual, expected);
 //      }
-    //
+        //
 //      @org.junit.jupiter.api.Test
 //      void testHaveBrelan() {
 //       Card card1 = new Card(Rank.FOUR);
@@ -381,7 +402,7 @@ class test {
 //       int expected = card1.getValue();
 //       assertEquals(actual, expected);
 //      }
-    //
+        //
 //      @org.junit.jupiter.api.Test
 //      void testHaveBrelan1() {
 //       Card card1 = new Card(Rank.FOUR);
@@ -395,7 +416,7 @@ class test {
 //       int expected = 0;
 //       assertEquals(actual, expected);
 //      }
-    //
+        //
 //      @org.junit.jupiter.api.Test
 //      void testComparebrelan() {
 //       Card card1 = new Card(Rank.EIGHT);
@@ -416,8 +437,8 @@ class test {
 //          int expected = 1;
 //          assertEquals(actual, expected);
 //      }
-    //
-    //
+        //
+        //
 //      @org.junit.jupiter.api.Test
 //      void testComparebrelan1() {
 //       Card card1 = new Card(Rank.EIGHT);
@@ -438,7 +459,7 @@ class test {
 //          int expected = 2;
 //          assertEquals(actual, expected);
 //      }
-    //
+        //
 //      @org.junit.jupiter.api.Test
 //      void testComparebrelan2() {
 //       Card card1 = new Card(Rank.FOUR);
@@ -459,7 +480,7 @@ class test {
 //          int expected = 1;
 //          assertEquals(actual, expected);
 //      }
-    //
+        //
 //      @org.junit.jupiter.api.Test
 //      void testHaveDoublePair() {
 //       Card card1 = new Card(Rank.FOUR);
@@ -473,7 +494,7 @@ class test {
 //          cardlist1.add(card4);
 //          assertTrue(comparison.haveDoublePair(cardlist1));
 //      }
-    //}
+        //}
 
-
+    }
 }

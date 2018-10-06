@@ -22,7 +22,9 @@ public class Card {
 
     @Override
     public String toString() {
-        return rank.getName() + color.getName();
+        return rank.getName()
+//                + color.getName()
+        ;
     }
 
     public int getValue() {
@@ -31,5 +33,9 @@ public class Card {
 
     public String getName() {
         return rank.getName();
+    }
+
+    public String getColor(){
+        return color.getName();
     }
 }
