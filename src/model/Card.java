@@ -38,4 +38,8 @@ public class Card {
     public String getColor(){
         return color.getName();
     }
+
+	public Rank getRank() {
+		return this.rank;
+	}
 }

@@ -9,11 +9,9 @@ package model;
  */
 public enum Rank {
 
-    ACE("A", 14), TWO("2", 2), THREE("3", 3),
-    FOUR("4", 4), FIVE("5", 5), SIX("6", 6),
-    SEVEN("7", 7), EIGHT("8", 8), NINE("9", 9),
-    TEN("10", 10), JACK("V", 11),
-    QUEEN("D", 12), KING("R", 13);
+	TWO("2", 1), THREE("3", 2), FOUR("4", 4), FIVE("5", 8), SIX("6", 16), 
+	SEVEN("7", 32), EIGHT("8", 64), NINE("9",128), TEN("10", 256), 
+	JACK("J", 512), QUEEN("Q", 1024), KING("K", 2048), ACE("A", 4096);
 
     private int value;
     private String name;
@@ -44,4 +42,11 @@ public enum Rank {
         return null;
     }
 
+	int longValue() {
+		return this.value;
+	}
+	
+	int shortValue() {
+		return this.ordinal()+2;
+	}
 }
