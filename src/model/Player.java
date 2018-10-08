@@ -1,6 +1,5 @@
 package model;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -16,7 +15,12 @@ import java.util.Scanner;
 public class Player {
 	String name;
 	List<Card> handcard = new ArrayList<>();
-	public List<Integer> compteur = new ArrayList<>();
+	Player player1;
+	Player player2;
+	Scanner in = new Scanner(System.in);
+	public List<Integer> compteur = new ArrayList<Integer>();
+	public List<Integer> compteur1 = new ArrayList<Integer>();
+
 	int point = 0;
 	public static final int PAIREPOINT = 1000000;
 	public static final int PAIRE2POINT = 2000000;
@@ -158,8 +162,6 @@ public class Player {
 		return false;
 	}
 
-
-
 	public boolean haveQuinteFlush(List<Card> handcard1) {
 		if (haveSameColor(handcard1) && haveSuit(handcard1)) {
 			return true;
@@ -181,6 +183,18 @@ public class Player {
 		return point;
 	}
 
+	public int point_doublepaire(List<Card> handlist) {
+		if (haveDoublePair(handlist)) {
+			point = PAIRE2POINT + (compteur.get(0) + compteur.get(1)) * LBASEVALUE;
+			if (point == 0)
+				return point;
+			for (Card find : handlist)
+				if (find.getRank().longValue() != compteur.get(0) && find.getRank().longValue() != compteur.get(1))
+					point += find.getRank().shortValue();
+		}
+		return point;
+	}
+
 	public int point_brelan(List<Card> handlist) {
 		if (haveBrelan(handlist)) {
 			int svalue = (int) (Math.log(compteur.get(0)) / Math.log(2)) + 2;
@@ -193,4 +207,28 @@ public class Player {
 		}
 		return point;
 	}
+
+	public int point_carre(List<Card> handlist) {
+		if (haveCarre(handlist)) {
+			int svalue = (int) (Math.log(compteur.get(0)) / Math.log(2)) + 2;
+			point = CARREPOINT + svalue * SBASEVALUE;
+			if (point == 0)
+				return point;
+			for (Card find : handlist)
+				if (find.getRank().shortValue() != svalue)
+					point += find.getRank().longValue();
+		}
+		return point;
+	}
+
+//	public int point_full(List<Card> handlist) {
+//		if(haveFull(handlist)) {
+//			for (int i = 0; i < compteur.size(); i++) {
+//				for (int j = i + 1; j < compteur.size(); j++) {
+//					if (compteur.get(i).longValue() == compteur.get(j).longValue()) {
+//						compteur1.add((int) compteur.get(i).longValue());
+//					}
+//			}
+//		}
+//	}
 }

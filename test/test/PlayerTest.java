@@ -434,5 +434,42 @@ class PlayerTest {
 		int actuel = p1.point_brelan(cardlist1);
 		assertEquals(expected, actuel);
 	}
+	
+	@Test
+	void testPoint_doublePair() {
+		Card card1 = new Card(Rank.NINE, Color.Pique);
+		Card card2 = new Card(Rank.NINE, Color.Coeur);
+		Card card3 = new Card(Rank.ACE, Color.Coeur);
+		Card card4 = new Card(Rank.ACE, Color.Coeur);
+		Card card5 = new Card(Rank.KING, Color.Coeur);
+		List<Card> cardlist1 = new ArrayList<Card>();
+		cardlist1.add(card1);
+		cardlist1.add(card2);
+		cardlist1.add(card3);
+		cardlist1.add(card4);
+		cardlist1.add(card5);
+		int expected = 2422413;
+		int actuel = p1.point_doublepaire(cardlist1);
+		assertEquals(expected, actuel);
+	}
+	
+
+	@Test
+	void testPoint_carre() {
+		Card card1 = new Card(Rank.NINE, Color.Pique);
+		Card card2 = new Card(Rank.NINE, Color.Coeur);
+		Card card3 = new Card(Rank.NINE, Color.Coeur);
+		Card card4 = new Card(Rank.NINE, Color.Coeur);
+		Card card5 = new Card(Rank.KING, Color.Coeur);
+		List<Card> cardlist1 = new ArrayList<Card>();
+		cardlist1.add(card1);
+		cardlist1.add(card2);
+		cardlist1.add(card3);
+		cardlist1.add(card4);
+		cardlist1.add(card5);
+		int expected = 7092048;
+		int actuel = p1.point_carre(cardlist1);
+		assertEquals(expected, actuel);
+	}
 
 }
