@@ -33,9 +33,9 @@ public enum Rank {
         this.value = a;
     }
 
-    public static Rank getRank(int value) {
+    public static Rank getRank(String value) {
         for (Rank name : Rank.values()) {
-            if (name.getValue() == value) {
+            if (name.getName() == value) {
                 return name;
             }
         }

@@ -69,24 +69,6 @@ public class Player {
 		System.out.println(" ");
 	}
 
-//    public void playerOneAddCard() {
-//        int sc = in.nextInt();
-//        if (sc == 1) {
-//            sc += 13;
-//        }
-//        Card c1 = new Card(Rank.getRank(sc));
-//        player1.addCard(c1);
-//    }
-//
-//    public void playerTwoAddCard() {
-//        int sc1 = in.nextInt();
-//        if (sc1 == 1) {
-//            sc1 += 13;
-//        }
-//        Card c2 = new Card(Rank.getRank(sc1));
-//        player2.addCard(c2);
-//    }
-
 	public Card max(List<Card> handcard) {
 		Card cardMax = handcard.get(0);
 		for (int i = 0; i < handcard.size(); i++) {

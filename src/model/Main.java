@@ -21,26 +21,26 @@ public class Main {
         p2.handcard = new ArrayList<>();
 
         System.out.print("Main 1: ");
-        int r1 = in.nextInt();
+        String r1 = in.next();
         p1.addCard(new Card(Rank.getRank(r1)));
-        int r2 = in.nextInt();
+        String r2 = in.next();
         p1.addCard(new Card(Rank.getRank(r2)));
-        int r3 = in.nextInt();
+        String r3 = in.next();
         p1.addCard(new Card(Rank.getRank(r3)));
-        int r4 = in.nextInt();
+        String r4 = in.next();
         p1.addCard(new Card(Rank.getRank(r4)));
-        System.out.print("Main 2: ");
-        int sc5 = in.nextInt();
-        p2.addCard(new Card(Rank.getRank(sc5)));
-        int sc6 = in.nextInt();
-        p2.addCard(new Card(Rank.getRank(sc6)));
-        int sc7 = in.nextInt();
-        p2.addCard(new Card(Rank.getRank(sc7)));
-        int sc8 = in.nextInt();
-        p2.addCard(new Card(Rank.getRank(sc8)));
+//        System.out.print("Main 2: ");
+//        int sc5 = in.nextInt();
+//        p2.addCard(new Card(Rank.getRank(sc5)));
+//        int sc6 = in.nextInt();
+//        p2.addCard(new Card(Rank.getRank(sc6)));
+//        int sc7 = in.nextInt();
+//        p2.addCard(new Card(Rank.getRank(sc7)));
+//        int sc8 = in.nextInt();
+//        p2.addCard(new Card(Rank.getRank(sc8)));
         in.close();
-//        System.out.println(p1.handcard);
+        System.out.println(p1.getHandcard());
 //        System.out.println(p2.handcard);
-        System.out.println(comparison.compare(p1.handcard, p2.handcard));
+//        System.out.println(comparison.compare(p1.handcard, p2.handcard));
     }
 }

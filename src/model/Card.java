@@ -20,11 +20,12 @@ public class Card {
         this.color = color;
     }
 
-    @Override
     public String toString() {
-        return rank.getName()
+        if(rank != null)
+        System.out.println(rank.getName())
 //                + color.getName()
         ;
+        return null;
     }
 
     public int getValue() {

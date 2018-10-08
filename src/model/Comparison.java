@@ -23,11 +23,10 @@ public class Comparison {
 
 
     public int compare(List<Card> handCard1, List<Card> handCard2) {
-        if (player1.Compteur(handCard1) != 0 && player2.Compteur(handCard2) != 0) {
-            if (player1.Compteur(handCard1) > player2.Compteur(handCard2)) {
+        if (player1.compteur.size() != 0 && player2.compteur.size() != 0) {
+            if (player1.compteur.size() > player2.compteur.size()) {
                 return 1;
-
-            } else if (player1.Compteur(handCard1) < player2.Compteur(handCard2)) {
+            } else if (player1.compteur.size() < player2.compteur.size()) {
                 return 2;
             } else {
                 for (int i = 0; i < handCard1.size(); i++) {
