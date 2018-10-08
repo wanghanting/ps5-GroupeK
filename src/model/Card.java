@@ -10,7 +10,7 @@ package model;
 public class Card {
     Rank rank;
     Color color;
-
+    
     public Card(Rank rank) {
         this.rank = rank;
     }

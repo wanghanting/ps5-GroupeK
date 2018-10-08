@@ -15,10 +15,7 @@ import java.util.Scanner;
  */
 public class Player {
 	String name;
-	List<Card> handcard = new ArrayList<>();
-	Player player1;
-	Player player2;
-	Scanner in = new Scanner(System.in);
+	List<Card> handcard;
 	public List<Integer> compteur = new ArrayList<Integer>();
 	int point = 0;
 	public static final int PAIREPOINT = 1000000;
@@ -61,12 +58,8 @@ public class Player {
 	}
 
 	public void show() {
-		System.out.println("Name: " + player1.getName());
-		player1.showAllCard();
-		System.out.println(" ");
-		System.out.println("Name: " + player2.getName());
-		player2.showAllCard();
-		System.out.println(" ");
+		System.out.println("Name: " + getName());
+		showAllCard();
 	}
 
 	public Card max(List<Card> handcard) {

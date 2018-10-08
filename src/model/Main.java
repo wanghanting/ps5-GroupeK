@@ -17,8 +17,6 @@ public class Main {
         Comparison comparison = new Comparison();
         Player p1 = new Player("p1");
         Player p2 = new Player("p2");
-        p1.handcard = new ArrayList<>();
-        p2.handcard = new ArrayList<>();
 
         System.out.print("Main 1: ");
         String r1 = in.next();

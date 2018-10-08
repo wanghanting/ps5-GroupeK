@@ -124,5 +124,4 @@ public class Comparison {
         }
         return name1.containsAll(name2) && name2.containsAll(name1);
     }
-
 }
