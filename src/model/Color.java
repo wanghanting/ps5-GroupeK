@@ -22,7 +22,7 @@ public enum Color {
 
     public static Color getColor(String color) {
         for (Color color1 : Color.values()) {
-            if (color1.equals(color)) {
+            if (color1.getName().equals(color)) {
                 return color1;
             }
         }

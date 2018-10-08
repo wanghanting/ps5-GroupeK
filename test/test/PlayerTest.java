@@ -14,7 +14,6 @@ import model.Rank;
 
 class PlayerTest {
 	Player p1 = new Player("p1");
-	Player p2 = new Player("p2");
 	
 	 @Test
 	    void testHaveCarre() {
@@ -435,6 +434,5 @@ class PlayerTest {
 		int actuel = p1.point_brelan(cardlist1);
 		assertEquals(expected, actuel);
 	}
-	
 
 }

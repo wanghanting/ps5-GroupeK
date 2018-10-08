@@ -15,8 +15,8 @@ import java.util.Scanner;
  */
 public class Player {
 	String name;
-	List<Card> handcard;
-	public List<Integer> compteur = new ArrayList<Integer>();
+	List<Card> handcard = new ArrayList<>();
+	public List<Integer> compteur = new ArrayList<>();
 	int point = 0;
 	public static final int PAIREPOINT = 1000000;
 	public static final int PAIRE2POINT = 2000000;
@@ -32,11 +32,10 @@ public class Player {
 
 	public Player(String name) {
 		this.name = name;
-		handcard = new ArrayList<>();
 	}
 
 	public void addCard(Card card) {
-		this.handcard.add(card);
+		handcard.add(card);
 	}
 
 	public void showAllCard() {
