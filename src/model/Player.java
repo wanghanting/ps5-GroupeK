@@ -15,10 +15,7 @@ import java.util.Scanner;
  */
 public class Player {
 	String name;
-	List<Card> handcard = new ArrayList<>();
-	Player player1;
-	Player player2;
-	Scanner in = new Scanner(System.in);
+	List<Card> handcard;
 	public List<Integer> compteur = new ArrayList<Integer>();
 	int point = 0;
 	public static final int PAIREPOINT = 1000000;
