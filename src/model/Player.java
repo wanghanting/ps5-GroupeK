@@ -221,14 +221,50 @@ public class Player {
 		return point;
 	}
 
-//	public int point_full(List<Card> handlist) {
-//		if(haveFull(handlist)) {
-//			for (int i = 0; i < compteur.size(); i++) {
-//				for (int j = i + 1; j < compteur.size(); j++) {
-//					if (compteur.get(i).longValue() == compteur.get(j).longValue()) {
-//						compteur1.add((int) compteur.get(i).longValue());
-//					}
-//			}
-//		}
-//	}
+	public int point_full(List<Card> handlist) {
+		if (haveFull(handlist)) {
+			for (int i = 0; i < compteur.size(); i++) {
+				for (int j = i + 1; j < compteur.size(); j++) {
+					if (compteur.get(i).shortValue() == compteur.get(j).shortValue()) {
+						compteur1.add((int) compteur.get(i).shortValue());
+					}
+					int svalue = (int) (Math.log(compteur.get(0)) / Math.log(2)) + 2;
+					point = svalue * SBASEVALUE;
+					System.out.println(point+"rfje");
+
+				}
+			}
+			for (int find: compteur)
+				if (find != compteur1.get(0).shortValue()) {
+					find = (int) (Math.log(find) / Math.log(2)) + 2;
+					point += find;
+				}
+			point += FULLPOINT;
+		}
+		return point;
+	}
+
+	public int point_samecolor(List<Card> handlist) {
+		if (haveSameColor(handlist)) {
+			for(int i = 0; i<handlist.size();i++) {
+			point += handlist.get(i).getRank().longValue();
+			}
+			point +=COULEURPOINT;
+		}
+		return point;
+	}
+
+	public int point_suite(List<Card> handlist) {
+		if (haveSuit(handlist)) {
+			point = SUITEPOINT + max(handlist).getRank().shortValue();
+		}
+		return point;
+	}
+
+	public int point_quinteFlush(List<Card> handlist) {
+		if (point_samecolor(handlist) * point_suite(handlist) != 0) {
+			point = QFPOINT + point_suite(handlist);
+		}
+		return point;
+	}
 }

@@ -346,6 +346,7 @@ class PlayerTest {
 
 
 	@Test
+	//OK!
 	void testPoint_pair() {
 		Card card1 = new Card(Rank.TEN, Color.Pique);
 		Card card2 = new Card(Rank.TEN, Color.Coeur);
@@ -382,6 +383,7 @@ class PlayerTest {
 	}
 	
 	@Test
+	//ok£¡
 	void testPoint_brelan() {
 		Card card1 = new Card(Rank.THREE, Color.Pique);
 		Card card2 = new Card(Rank.THREE, Color.Coeur);
@@ -436,6 +438,7 @@ class PlayerTest {
 	}
 	
 	@Test
+	//OK!
 	void testPoint_doublePair() {
 		Card card1 = new Card(Rank.NINE, Color.Pique);
 		Card card2 = new Card(Rank.NINE, Color.Coeur);
@@ -455,6 +458,7 @@ class PlayerTest {
 	
 
 	@Test
+	//OK!
 	void testPoint_carre() {
 		Card card1 = new Card(Rank.NINE, Color.Pique);
 		Card card2 = new Card(Rank.NINE, Color.Coeur);
@@ -472,4 +476,102 @@ class PlayerTest {
 		assertEquals(expected, actuel);
 	}
 
+	@Test
+	//OK!
+	void testPoint_samecolor() {
+		Card card1 = new Card(Rank.NINE, Color.Coeur);
+		Card card2 = new Card(Rank.NINE, Color.Coeur);
+		Card card3 = new Card(Rank.NINE, Color.Coeur);
+		Card card4 = new Card(Rank.NINE, Color.Coeur);
+		Card card5 = new Card(Rank.KING, Color.Coeur);
+		List<Card> cardlist1 = new ArrayList<Card>();
+		cardlist1.add(card1);
+		cardlist1.add(card2);
+		cardlist1.add(card3);
+		cardlist1.add(card4);
+		cardlist1.add(card5);
+		int expected = 5002560;
+		int actuel = p1.point_samecolor(cardlist1);
+		assertEquals(expected, actuel);
+	}
+	
+	@Test
+	//OK!
+	void testPoint_full() {
+		Card card1 = new Card(Rank.NINE, Color.Coeur);
+		Card card2 = new Card(Rank.NINE, Color.Coeur);
+		Card card3 = new Card(Rank.NINE, Color.Coeur);
+		Card card4 = new Card(Rank.KING, Color.Coeur);
+		Card card5 = new Card(Rank.KING, Color.Coeur);
+		List<Card> cardlist1 = new ArrayList<Card>();
+		cardlist1.add(card1);
+		cardlist1.add(card2);
+		cardlist1.add(card3);
+		cardlist1.add(card4);
+		cardlist1.add(card5);
+		int expected = 6090013;
+		int actuel = p1.point_full(cardlist1);
+		assertEquals(expected, actuel);
+	}
+	
+	@Test
+	//OK!
+	void testPoint_suit() {
+		Card card1 = new Card(Rank.SEVEN, Color.Pique);
+		Card card2 = new Card(Rank.EIGHT, Color.Coeur);
+		Card card3 = new Card(Rank.SIX, Color.Coeur);
+		Card card4 = new Card(Rank.FIVE, Color.Coeur);
+		Card card5 = new Card(Rank.FOUR, Color.Coeur);
+		List<Card> cardlist1 = new ArrayList<Card>();
+		cardlist1.add(card1);
+		cardlist1.add(card2);
+		cardlist1.add(card3);
+		cardlist1.add(card4);
+		cardlist1.add(card5);
+		int expected = 4000008;
+		int actuel = p1.point_suite(cardlist1);
+		assertEquals(expected, actuel);
+	}
+
+	@Test
+	//OK!
+	void testPoint_quinteFlush() {
+		Card card1 = new Card(Rank.SEVEN, Color.Coeur);
+		Card card2 = new Card(Rank.EIGHT, Color.Coeur);
+		Card card3 = new Card(Rank.SIX, Color.Coeur);
+		Card card4 = new Card(Rank.FIVE, Color.Coeur);
+		Card card5 = new Card(Rank.FOUR, Color.Coeur);
+		List<Card> cardlist1 = new ArrayList<Card>();
+		cardlist1.add(card1);
+		cardlist1.add(card2);
+		cardlist1.add(card3);
+		cardlist1.add(card4);
+		cardlist1.add(card5);
+		int expected = 8000008;
+		int actuel = p1.point_quinteFlush(cardlist1);
+		assertEquals(expected, actuel);
+	}
+	
+	@Test
+	//OK!
+	void testPoint_autrequinteFlush() {
+		Card card1 = new Card(Rank.SEVEN, Color.Coeur);
+		Card card2 = new Card(Rank.EIGHT, Color.Coeur);
+		Card card3 = new Card(Rank.SIX, Color.Coeur);
+		Card card4 = new Card(Rank.FIVE, Color.Coeur);
+		Card card5 = new Card(Rank.NINE, Color.Coeur);
+		List<Card> cardlist1 = new ArrayList<Card>();
+		cardlist1.add(card1);
+		cardlist1.add(card2);
+		cardlist1.add(card3);
+		cardlist1.add(card4);
+		cardlist1.add(card5);
+		int expected = 8000009;
+		int actuel = p1.point_quinteFlush(cardlist1);
+		assertEquals(expected, actuel);
+	}
+
+
+	
+	
 }
