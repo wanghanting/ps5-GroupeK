@@ -58,12 +58,8 @@ public class Player {
 	}
 
 	public void show() {
-		System.out.println("Name: " + player1.getName());
-		player1.showAllCard();
-		System.out.println(" ");
-		System.out.println("Name: " + player2.getName());
-		player2.showAllCard();
-		System.out.println(" ");
+		System.out.println("Name: " + getName());
+		showAllCard();
 	}
 
 //    public void playerOneAddCard() {
