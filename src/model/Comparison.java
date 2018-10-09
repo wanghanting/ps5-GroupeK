@@ -36,38 +36,6 @@ public class Comparison {
     }
     
 
-
-  
-
-//    public String compare(List<Card> handCard1, List<Card> handCard2) { //comparaison en fonction des points attribu�s � chaque main
-//    	if (player1.pointPlayer(handCard1) == player2.pointPlayer(handCard2)){
-//    		String hhh = "Egalit�";
-//    		return hhh;
-//    		if (player1.pointPlayer(handCard1) > player2.pointPlayer(handCard2)){
-//    			return "player1 gagne";
-//    			
-//    		}
-//    		if (player1.pointPlayer(handCard1) < player2.pointPlayer(handCard2)){
-//    			return "player2 gagne";
-//    			
-//    		}
-//    	}
-
-//    public int compare(List<Card> handCard1, List<Card> handCard2) {
-//    	if (player1.pointPlayer(handCard1) == player2.pointPlayer(handCard2)){
-//    		return 0;
-//
-//    	}
-//    	else if (player1.pointPlayer(handCard1) < player2.pointPlayer(handCard2)) {
-//    		return 2;
-//    	}
-//    	else {
-//    		 return 1;
-//   
-//    	}
-//    }
-
-
     public String compare(List<Card> handCard1, List<Card> handCard2) { //comparaison en fonction des points attribues de chaque main
     	if (player1.point(handCard1) == player2.point(handCard2)){
     		String hhh = "Egalit�";

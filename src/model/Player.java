@@ -164,8 +164,8 @@ public class Player {
 	public int point_leplushaute(List<Card> handlist) {
 		for(int i = 0;i<handlist.size();i++)
 			point += handlist.get(i).getRank().longValue();
-		System.out.println(point + "fhdjhdj");
-		return point;
+		    return point;
+		
 	}
 
 	public int point_pair(List<Card> handlist) {
@@ -313,17 +313,4 @@ public class Player {
 		return point;
 	}
 
-//	public String compare(List<Card> handCard1, List<Card> handCard2) {
-//		int point1 = pointPlayer(handCard1);
-//		String result1 = "La main 1 gagne avec " + result;
-//		int point2 = pointPlayer(handCard2);
-//		String result2 = "La main 2 gagne avec " + result;
-//		if (point1 == point2)
-//			return "Egalite";
-//		else if(point1>point2) {
-//			return result1;
-//		}else {
-//			return result2;
-//		}
-//	}
 }
