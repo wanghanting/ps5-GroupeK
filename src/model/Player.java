@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
+import poker.Card;
+
 /**
  * @Project: Dojo
  * @Author: PS5-Groupe K
@@ -172,6 +174,12 @@ public class Player {
 		}
 	}
 
+	public int point_leplushaute(List<Card> handlist) {
+		for (Card find :handlist)
+			point += find.getRank().longValue();
+		return point;
+	}
+	
 	public int point_pair(List<Card> handlist) {
 		if (havePair(handlist)) {
 			int svalue = (int) (Math.log(compteur.get(0)) / Math.log(2)) + 2;
@@ -283,4 +291,5 @@ public class Player {
 		result = "Quinte Flush de " + max(handlist).getRank().shortValue();
 		return point;
 	}
+
 }

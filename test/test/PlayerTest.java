@@ -343,7 +343,25 @@ class PlayerTest {
 	          cardlist1.add(card5);
 	          assertFalse(p1.haveQuinteFlush(cardlist1));
 	      }
-
+	      
+	      @Test
+	  	//OK!
+	  	void testPoint_leplushaute() {
+	  		Card card1 = new Card(Rank.NINE, Color.Coeur);
+	  		Card card2 = new Card(Rank.TEN, Color.Coeur);
+	  		Card card3 = new Card(Rank.SIX, Color.Coeur);
+	  		Card card4 = new Card(Rank.KING, Color.Coeur);
+	  		Card card5 = new Card(Rank.ACE, Color.Coeur);
+	  		List<Card> cardlist1 = new ArrayList<Card>();
+	  		cardlist1.add(card1);
+	  		cardlist1.add(card2);
+	  		cardlist1.add(card3);
+	  		cardlist1.add(card4);
+	  		cardlist1.add(card5);
+	  		int expected = 6544;
+	  		int actuel = p1.point_leplushaute(cardlist1);
+	  		assertEquals(expected, actuel);
+	  	}
 
 	@Test
 	//OK!
