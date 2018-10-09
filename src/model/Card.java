@@ -24,7 +24,7 @@ public class Card {
     public String toString() {
         return (rank.getName() + color.getName());
     }
-
+// ajout de la syntaxe de la couleur et des valeurs à chaque carte devant être reconnue par la suite
     public int getValue() {
         return rank.getValue();
     }

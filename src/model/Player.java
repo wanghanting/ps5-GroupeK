@@ -3,9 +3,8 @@ package model;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Scanner;
 
-import poker.Card;
+
 
 /**
  * @Project: Dojo
@@ -23,7 +22,7 @@ public class Player {
 
 	int point = 0;
 	String result = null;
-	public static final int PAIREPOINT = 1000000;
+	public static final int PAIREPOINT = 1000000; //Points permettants de comparer les mains et de déterminer le vainqueur
 	public static final int PAIRE2POINT = 2000000;
 	public static final int BRELANPOINT = 3000000;
 	public static final int SUITEPOINT = 4000000;
@@ -75,7 +74,7 @@ public class Player {
 		}
 		return cardMax;
 	}
-
+//Méthode permettant de trouver facilement les types de mains ayants des cartes identiques
 	public int Compteur(List<Card> handCard1) {
 		for (int i = 0; i < handCard1.size(); i++) {
 			for (int j = i + 1; j < handCard1.size(); j++) {
@@ -170,7 +169,7 @@ public class Player {
 			return false;
 		}
 	}
-
+//attribution des points à chaque type de main
 	public int point_leplushaute(List<Card> handlist) {
 		for (Card find :handlist)
 			point += find.getRank().longValue();
@@ -316,7 +315,7 @@ public class Player {
 			point = point_pair(handCard);
 		}
 		else {
-			
+			point = point_leplushaute(handCard);
 		}
 		return point;
 	}

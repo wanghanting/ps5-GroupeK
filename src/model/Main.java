@@ -17,13 +17,13 @@ public class Main {
 
         System.out.print("Main 1: ");
         
-        for ( int i=0; i<5;i++) {
+        for ( int i=0; i<5;i++) { //Séparation des cartes de la main 1
         	String ri = in.next();
         	comparison.player1.addCard(new Card(Rank.getRank(ri.substring(0,ri.length()-2)), Color.getColor(ri.substring(ri.length() - 2))));
         }
         System.out.print("Main 2: ");
         
-        for ( int i=5; i<10;i++) {
+        for ( int i=5; i<10;i++) { //Séparation des cartes de la main 2
         	String ri = in.next();
         	comparison.player2.addCard(new Card(Rank.getRank(ri.substring(0,ri.length()-2)), Color.getColor(ri.substring(ri.length() - 2))));
         }
