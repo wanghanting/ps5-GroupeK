@@ -123,4 +123,19 @@ public class Comparison {
         }
         return name1.containsAll(name2) && name2.containsAll(name1);
     }
+    
+    public String compare(List<Card> handCard1, List<Card> handCard2) {
+    	if (player1.pointPlayer(handCard1) == player2.pointPlayer(handCard2)){
+    		return "Egalité";
+    	}
+    	else if (player1.pointPlayer(handCard1) < player2.pointPlayer(handCard2)) {
+    		String hhh = "La main 1 gagne : "+player1.result;
+    		System.out.println(hhh);
+    		return hhh;
+    	}
+    	else {
+    		 return "La main 2 gagne : "+player2.result;
+   
+    	}
+    }
 }

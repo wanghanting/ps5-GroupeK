@@ -3,9 +3,8 @@ package model;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Scanner;
 
-import poker.Card;
+
 
 /**
  * @Project: Dojo
@@ -316,7 +315,7 @@ public class Player {
 			point = point_pair(handCard);
 		}
 		else {
-			
+			point = point_leplushaute(handCard);
 		}
 		return point;
 	}
