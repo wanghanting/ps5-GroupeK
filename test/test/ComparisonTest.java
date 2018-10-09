@@ -112,5 +112,32 @@ class ComparisonTest extends Comparison {
 	        cardlist2.add(card8);
 	        assertTrue(!comparison.equals(cardlist1, cardlist2));
 	    }
+	    
+	    @Test
+	    void testEqualForCompare() {
+	        Card card1 = new Card(Rank.THREE);
+	        Card card2 = new Card(Rank.FIVE);
+	        Card card3 = new Card(Rank.TWO);
+	        Card card4 = new Card(Rank.FOUR);
+	        Card card5 = new Card(Rank.ACE);
+	        Card card6 = new Card(Rank.TWO);
+	        Card card7 = new Card(Rank.THREE);
+	        Card card8 = new Card(Rank.FOUR);
+	        Card card9 = new Card(Rank.ACE);
+	        Card card10 = new Card(Rank.FIVE);
+	        List<Card> cardlist1 = new ArrayList<Card>();
+	        List<Card> cardlist2 = new ArrayList<Card>();
+	        cardlist1.add(card1);
+	        cardlist1.add(card2);
+	        cardlist1.add(card3);
+	        cardlist1.add(card4);
+	        cardlist1.add(card5);
+	        cardlist2.add(card6);
+	        cardlist2.add(card7);
+	        cardlist2.add(card8);
+	        cardlist2.add(card9);
+	        cardlist2.add(card10);
+	        assertTrue(comparison.compare(cardlist1, cardlist2));
+	    }
 
 }

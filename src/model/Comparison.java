@@ -112,9 +112,9 @@ public class Comparison {
 //			System.out.println("Egalité”Ÿï¿½");
 //		}
 //	}
-    public boolean equals(List<Card> handCard1, List<Card> handCard2) { //Fonction qui vérifie les égalités
+    public boolean equals(List<Card> handCard1, List<Card> handCard2) { //Fonction qui vï¿½rifie les ï¿½galitï¿½s
         List<String> name1 = new ArrayList<>();
-        List<String> name2 = new ArrayList<>(); //par soucis de références on les place dans une nouvelle liste
+        List<String> name2 = new ArrayList<>(); //par soucis de rï¿½fï¿½rences on les place dans une nouvelle liste
         for (int i = 0; i < handCard1.size(); i++) {
             name1.add(handCard1.get(i).getName());
         }
@@ -124,9 +124,9 @@ public class Comparison {
         return name1.containsAll(name2) && name2.containsAll(name1);
     }
     
-    public String compare(List<Card> handCard1, List<Card> handCard2) { //comparaison en fonction des points attribués à chaque main
+    public String compare(List<Card> handCard1, List<Card> handCard2) { //comparaison en fonction des points attribuï¿½s ï¿½ chaque main
     	if (player1.pointPlayer(handCard1) == player2.pointPlayer(handCard2)){
-    		return "Egalité";
+    		return "Egalitï¿½";
     	}
     	else if (player1.pointPlayer(handCard1) < player2.pointPlayer(handCard2)) {
     		String hhh = "La main 1 gagne : "+player1.result;
