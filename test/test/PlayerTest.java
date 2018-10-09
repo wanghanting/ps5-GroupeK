@@ -565,7 +565,7 @@ class PlayerTest {
 		cardlist1.add(card3);
 		cardlist1.add(card4);
 		cardlist1.add(card5);
-		int expected = 8000008;
+		int expected = 44000008;
 		int actuel = p1.point_quinteFlush(cardlist1);
 		assertEquals(expected, actuel);
 	}
@@ -584,7 +584,7 @@ class PlayerTest {
 		cardlist1.add(card3);
 		cardlist1.add(card4);
 		cardlist1.add(card5);
-		int expected = 8000009;
+		int expected = 44000009;
 		int actuel = p1.point_quinteFlush(cardlist1);
 		assertEquals(expected, actuel);
 	}
