@@ -17,7 +17,7 @@ public class Player {
 	List<Card> handcard = new ArrayList<>();
 	public List<Integer> compteur = new ArrayList<Integer>();
 	public List<Integer> compteur1 = new ArrayList<Integer>();
-	String myRank[]= {"2","3","4","5","6","7","8","9","10","J","Q","K"};
+	String myRank[]= {"2","3","4","5","6","7","8","9","10","J","Q","K","A"};
 
 	int point = 0;
 	String result = null;
@@ -278,6 +278,37 @@ public class Player {
 			point = QFPOINT + point_suite(handlist);
 		}
 		result = "Quinte Flush de " + max(handlist).getRank().shortValue();
+		return point;
+	}
+	
+	public int pointPlayer(List<Card> handCard) {
+		if (haveQuinteFlush(handCard)) {
+			point = point_quinteFlush(handCard);
+		}
+		else if (haveCarre(handCard)) {
+			point = point_carre(handCard);
+		}
+		else if (haveFull(handCard)) {
+			point = point_full(handCard);
+		}
+		else if (haveSameColor(handCard)) {
+			point = point_samecolor(handCard);
+		}
+		else if (haveSuit(handCard)) {
+			point = point_suite(handCard);
+		}
+		else if (haveBrelan(handCard)) {
+			point = point_brelan(handCard);
+		}
+		else if (haveDoublePair(handCard)) {
+			point = point_doublepaire(handCard);
+		}
+		else if (havePair(handCard)) {
+			point = point_pair(handCard);
+		}
+		else {
+			
+		}
 		return point;
 	}
 }

@@ -21,36 +21,36 @@ public class Comparison {
         player2 = new Player("player2");
     }
 
-
-    public int compare(List<Card> handCard1, List<Card> handCard2) {
-        if (player1.compteur.size() != 0 && player2.compteur.size() != 0) {
-            if (player1.compteur.size() > player2.compteur.size()) {
-                return 1;
-            } else if (player1.compteur.size() < player2.compteur.size()) {
-                return 2;
-            } else {
-                for (int i = 0; i < handCard1.size(); i++) {
-                    value1.add(handCard1.get(i).getValue());
-                    value2.add(handCard2.get(i).getValue());
-                }
-                player1.SortDecreasing(value1);
-                player2.SortDecreasing(value2);
-//                System.out.println(value1);
-//                System.out.println(value2);
-                for (int i = 0; i < value1.size(); i++) {
-                    if (value1.get(i) > value2.get(i)) {
-                        return 1;
-                    } else if (handCard1.get(i).getValue() < handCard2.get(i).getValue()) {
-                        return 2;
-                    } else {
-                        return 0;
-                    }
-                }
-            }
-        }
-        System.out.println("!!!");
-        return 0;
-    }
+//
+//    public int compare(List<Card> handCard1, List<Card> handCard2) {
+//        if (player1.compteur.size() != 0 && player2.compteur.size() != 0) {
+//            if (player1.compteur.size() > player2.compteur.size()) {
+//                return 1;
+//            } else if (player1.compteur.size() < player2.compteur.size()) {
+//                return 2;
+//            } else {
+//                for (int i = 0; i < handCard1.size(); i++) {
+//                    value1.add(handCard1.get(i).getValue());
+//                    value2.add(handCard2.get(i).getValue());
+//                }
+//                player1.SortDecreasing(value1);
+//                player2.SortDecreasing(value2);
+////                System.out.println(value1);
+////                System.out.println(value2);
+//                for (int i = 0; i < value1.size(); i++) {
+//                    if (value1.get(i) > value2.get(i)) {
+//                        return 1;
+//                    } else if (handCard1.get(i).getValue() < handCard2.get(i).getValue()) {
+//                        return 2;
+//                    } else {
+//                        return 0;
+//                    }
+//                }
+//            }
+//        }
+//        System.out.println("!!!");
+//        return 0;
+//    }
 
 
 
