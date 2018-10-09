@@ -167,7 +167,6 @@ class ComparisonTest extends Comparison {
 	        cardlist2.add(card8);
 	        cardlist2.add(card9);
 	        cardlist2.add(card10);
-	        System.out.println(comparison.compare(cardlist1, cardlist2));
 	        String actual = comparison.compare(cardlist1, cardlist2);
 	        String expected = "La main 1 gagne : Couleur";
 	        assertEquals(actual, expected);
@@ -197,10 +196,8 @@ class ComparisonTest extends Comparison {
 	        cardlist2.add(card8);
 	        cardlist2.add(card9);
 	        cardlist2.add(card10);
-	        System.out.println(comparison.compare(cardlist1, cardlist2));
 	        String actual = comparison.compare(cardlist1, cardlist2);
 	        String expected = "La main 2 gagne : brelan de 4";
 	        assertEquals(actual, expected);
 	    }
-
 }
