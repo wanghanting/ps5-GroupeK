@@ -130,7 +130,7 @@ public class Comparison {
     		System.out.println(hhh);
     		return hhh;
     	}
-    	else if (player1.pointPlayer(handCard1) < player2.pointPlayer(handCard2)) {
+    	else if (player1.pointPlayer(handCard1) > player2.pointPlayer(handCard2)) {
     		String hhh = "La main 1 gagne : "+player1.result;
     		System.out.println(hhh);
     		return hhh;
