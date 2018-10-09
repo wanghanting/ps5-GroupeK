@@ -8,6 +8,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import model.Card;
+import model.Color;
 import model.Comparison;
 import model.Rank;
 
@@ -112,5 +113,63 @@ class ComparisonTest extends Comparison {
 	        cardlist2.add(card8);
 	        assertTrue(!comparison.equals(cardlist1, cardlist2));
 	    }
+	    
+	    @Test
+	    void testEqualForCompare() {
+	        Card card1 = new Card(Rank.THREE, Color.Trefle);
+	        Card card2 = new Card(Rank.FIVE, Color.Pique);
+	        Card card3 = new Card(Rank.TWO, Color.Pique);
+	        Card card4 = new Card(Rank.FOUR, Color.Pique);
+	        Card card5 = new Card(Rank.ACE, Color.Pique);
+	        Card card6 = new Card(Rank.TWO, Color.Pique);
+	        Card card7 = new Card(Rank.THREE, Color.Pique);
+	        Card card8 = new Card(Rank.FOUR, Color.Coeur);
+	        Card card9 = new Card(Rank.ACE, Color.Coeur);
+	        Card card10 = new Card(Rank.FIVE, Color.Pique);
+	        List<Card> cardlist1 = new ArrayList<Card>();
+	        List<Card> cardlist2 = new ArrayList<Card>();
+	        cardlist1.add(card1);
+	        cardlist1.add(card2);
+	        cardlist1.add(card3);
+	        cardlist1.add(card4);
+	        cardlist1.add(card5);
+	        cardlist2.add(card6);
+	        cardlist2.add(card7);
+	        cardlist2.add(card8);
+	        cardlist2.add(card9);
+	        cardlist2.add(card10);
+	        String actual = comparison.compare(cardlist1, cardlist2);
+	        String expected = "Egalité";
+	        assertEquals(actual, expected);
+	    }
+	    
+//	    @Test
+//	    void testEqualForCompare() {
+//	        Card card1 = new Card(Rank.THREE, Color.Trefle);
+//	        Card card2 = new Card(Rank.FIVE, Color.Pique);
+//	        Card card3 = new Card(Rank.TWO, Color.Pique);
+//	        Card card4 = new Card(Rank.FOUR, Color.Pique);
+//	        Card card5 = new Card(Rank.ACE, Color.Pique);
+//	        Card card6 = new Card(Rank.TWO, Color.Pique);
+//	        Card card7 = new Card(Rank.THREE, Color.Pique);
+//	        Card card8 = new Card(Rank.FOUR, Color.Coeur);
+//	        Card card9 = new Card(Rank.ACE, Color.Coeur);
+//	        Card card10 = new Card(Rank.FIVE, Color.Pique);
+//	        List<Card> cardlist1 = new ArrayList<Card>();
+//	        List<Card> cardlist2 = new ArrayList<Card>();
+//	        cardlist1.add(card1);
+//	        cardlist1.add(card2);
+//	        cardlist1.add(card3);
+//	        cardlist1.add(card4);
+//	        cardlist1.add(card5);
+//	        cardlist2.add(card6);
+//	        cardlist2.add(card7);
+//	        cardlist2.add(card8);
+//	        cardlist2.add(card9);
+//	        cardlist2.add(card10);
+//	        String actual = comparison.compare(cardlist1, cardlist2);
+//	        String expected = "Egalité";
+//	        assertEquals(actual, expected);
+//	    }
 
 }

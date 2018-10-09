@@ -19,7 +19,8 @@ public class Main {
         List<String> cs = new ArrayList<>();
 
         System.out.print("Main 1: ");
-        
+
+        //Séparation des cartes de la main 1
         for ( int i = 0; i < 5; i++) {
         	cs.add(in.next());
         	comparison.player1.addCard(new Card(Rank.getRank(cs.get(i).substring(0,cs.get(i).length()-2)), Color.getColor(cs.get(i).substring(cs.get(i).length() - 2))));
@@ -27,6 +28,7 @@ public class Main {
 
         System.out.print("Main 2: ");
 
+        //Séparation des cartes de la main 2
         for ( int i = 5; i < 10; i++) {
         	cs.add(in.next());
         	comparison.player2.addCard(new Card(Rank.getRank(cs.get(i).substring(0,cs.get(i).length()-2)), Color.getColor(cs.get(i).substring(cs.get(i).length() - 2))));
