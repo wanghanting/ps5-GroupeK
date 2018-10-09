@@ -82,7 +82,6 @@ public class Player {
 	public boolean havePair(List<Card> handCard1) {
 		Compteur(handCard1);
 		if (compteur.size() == 1) {
-			System.out.println(compteur.size());
 			return true;
 		}
 		return false;
@@ -91,7 +90,6 @@ public class Player {
 	public boolean haveDoublePair(List<Card> handCard1) {
 		Compteur(handCard1);
 		if (compteur.size() == 2) {
-			System.out.println(compteur.size());
 			return true;
 		}
 		return false;
@@ -100,7 +98,6 @@ public class Player {
 	public boolean haveBrelan(List<Card> handCard1) {
 		Compteur(handCard1);
 		if (compteur.size() == 3) {
-			System.out.println(compteur.size());
 			return true;
 		}
 		return false;
@@ -109,7 +106,6 @@ public class Player {
 	public boolean haveFull(List<Card> handCard1) {
 		Compteur(handCard1);
 		if (compteur.size() == 4) {
-			System.out.println(compteur.size());
 			return true;
 		}
 		return false;
@@ -118,7 +114,6 @@ public class Player {
 	public boolean haveCarre(List<Card> handCard1) {
 		Compteur(handCard1);
 		if (compteur.size() == 6) {
-			System.out.println(compteur.size());
 			return true;
 		}
 		return false;
