@@ -14,6 +14,7 @@ import model.Rank;
 
 class PlayerTest {
 	Player p1 = new Player("p1");
+	Player p2 = new Player("p2");
 	
 	 @Test
 	    void testHaveCarre() {
@@ -362,6 +363,35 @@ class PlayerTest {
 	  		int actuel = p1.point_leplushaute(cardlist1);
 	  		assertEquals(expected, actuel);
 	  	}
+	      @Test
+	      void testpoint_leplushaute() {
+	    	Card card1 = new Card(Rank.NINE, Color.Coeur);
+	  		Card card2 = new Card(Rank.TEN, Color.Coeur);
+	  		Card card3 = new Card(Rank.SIX, Color.Coeur);
+	  		Card card4 = new Card(Rank.KING, Color.Coeur);
+	  		Card card5 = new Card(Rank.ACE, Color.Pique);
+	  		Card card6 = new Card(Rank.TWO, Color.Coeur);
+			Card card7 = new Card(Rank.THREE, Color.Coeur);
+			Card card8 = new Card(Rank.FOUR, Color.Coeur);
+			Card card9 = new Card(Rank.FIVE, Color.Coeur);
+			Card card10 = new Card(Rank.ACE, Color.Carreau);
+			List<Card> cardlist1 = new ArrayList<Card>();
+			List<Card> cardlist2 = new ArrayList<Card>();
+			cardlist1.add(card1);
+			cardlist1.add(card2);
+			cardlist1.add(card3);
+			cardlist1.add(card4);
+			cardlist1.add(card5);
+			cardlist2.add(card6);
+			cardlist2.add(card7);
+			cardlist2.add(card8);
+			cardlist2.add(card9);
+			cardlist2.add(card10);
+	        assertTrue(p1.point(cardlist1)>p2.point(cardlist2));
+	      }
+			
+
+	
 
 	@Test
 	//OK!
@@ -401,7 +431,7 @@ class PlayerTest {
 	}
 	
 	@Test
-	//ok£°
+	//okÔºÅ
 	void testPoint_brelan() {
 		Card card1 = new Card(Rank.THREE, Color.Pique);
 		Card card2 = new Card(Rank.THREE, Color.Coeur);
@@ -588,6 +618,115 @@ class PlayerTest {
 		int actuel = p1.point_quinteFlush(cardlist1);
 		assertEquals(expected, actuel);
 	}
+	
+	@Test
+	//OK!
+	void testPoint_leplushaute1() {
+		Card card1 = new Card(Rank.TWO, Color.Coeur);
+		Card card2 = new Card(Rank.THREE, Color.Coeur);
+		Card card3 = new Card(Rank.FOUR, Color.Coeur);
+		Card card4 = new Card(Rank.FIVE, Color.Coeur);
+		Card card5 = new Card(Rank.ACE, Color.Carreau);
+		List<Card> cardlist1 = new ArrayList<Card>();
+		cardlist1.add(card1);
+		cardlist1.add(card2);
+		cardlist1.add(card3);
+		cardlist1.add(card4);
+		cardlist1.add(card5);
+		int expected = 4111;
+		int actuel = p1.point_leplushaute(cardlist1);
+		assertEquals(expected, actuel);
+	}
+
+	  @Test
+	    void testEqualForCompare() {
+	        Card card1 = new Card(Rank.THREE, Color.Trefle);
+	        Card card2 = new Card(Rank.FIVE, Color.Pique);
+	        Card card3 = new Card(Rank.TWO, Color.Pique);
+	        Card card4 = new Card(Rank.FOUR, Color.Pique);
+	        Card card5 = new Card(Rank.ACE, Color.Pique);
+	        Card card6 = new Card(Rank.TWO, Color.Pique);
+	        Card card7 = new Card(Rank.THREE, Color.Pique);
+	        Card card8 = new Card(Rank.FOUR, Color.Coeur);
+	        Card card9 = new Card(Rank.ACE, Color.Coeur);
+	        Card card10 = new Card(Rank.FIVE, Color.Pique);
+	        List<Card> cardlist1 = new ArrayList<Card>();
+	        List<Card> cardlist2 = new ArrayList<Card>();
+	        cardlist1.add(card1);
+	        cardlist1.add(card2);
+	        cardlist1.add(card3);
+	        cardlist1.add(card4);
+	        cardlist1.add(card5);
+	        cardlist2.add(card6);
+	        cardlist2.add(card7);
+	        cardlist2.add(card8);
+	        cardlist2.add(card9);
+	        cardlist2.add(card10);
+	        assertTrue(p1.point(cardlist1)==p2.point(cardlist2));
+
+//	        String actual = p1.compare(cardlist1, cardlist2);
+//	        String expected = "EgalitÔøΩ";
+//	        assertEquals(actual, expected);
+	  }
+
+	    void testCompareCinqCartesleplushaute() {
+	        Card card1 = new Card(Rank.EIGHT);
+	        Card card2 = new Card(Rank.FIVE);
+	        Card card3 = new Card(Rank.TWO);
+	        Card card4 = new Card(Rank.KING);
+	        Card card5 = new Card(Rank.THREE);
+	        Card card6 = new Card(Rank.EIGHT);
+	        Card card7 = new Card(Rank.FIVE);
+	        Card card8 = new Card(Rank.ACE);
+	        Card card9 = new Card(Rank.TWO);
+	        Card card10 = new Card(Rank.THREE);
+
+	        List<Card> cardlist1 = new ArrayList<Card>();
+	        List<Card> cardlist2 = new ArrayList<Card>();
+	        cardlist1.add(card1);
+	        cardlist1.add(card2);
+	        cardlist1.add(card3);
+	        cardlist1.add(card4);
+	        cardlist1.add(card5);
+	        cardlist2.add(card6);
+	        cardlist2.add(card7);
+	        cardlist2.add(card8);
+	        cardlist2.add(card9);
+	        cardlist2.add(card10);
+
+	        String actual = p1.compare(cardlist1, cardlist2);
+	        String expected = "EgalitÔøΩ";
+	        assertEquals(actual, expected);
+	    }
+	    
+	    @Test
+	    void testMain2GagneForCompare() {
+	        Card card1 = new Card(Rank.THREE, Color.Coeur);
+	        Card card2 = new Card(Rank.TWO, Color.Coeur);
+	        Card card3 = new Card(Rank.TWO, Color.Pique);
+	        Card card4 = new Card(Rank.TWO, Color.Carreau);
+	        Card card5 = new Card(Rank.ACE, Color.Pique);
+	        Card card6 = new Card(Rank.FOUR, Color.Pique);
+	        Card card7 = new Card(Rank.THREE, Color.Pique);
+	        Card card8 = new Card(Rank.FOUR, Color.Coeur);
+	        Card card9 = new Card(Rank.FOUR, Color.Carreau);
+	        Card card10 = new Card(Rank.FIVE, Color.Pique);
+	        List<Card> cardlist1 = new ArrayList<Card>();
+	        List<Card> cardlist2 = new ArrayList<Card>();
+	        cardlist1.add(card1);
+	        cardlist1.add(card2);
+	        cardlist1.add(card3);
+	        cardlist1.add(card4);
+	        cardlist1.add(card5);
+	        cardlist2.add(card6);
+	        cardlist2.add(card7);
+	        cardlist2.add(card8);
+	        cardlist2.add(card9);
+	        cardlist2.add(card10);
+	        assertTrue(p1.point_brelan(cardlist1)<p2.point_brelan(cardlist2));
+
+
+	    }
 
 
 	

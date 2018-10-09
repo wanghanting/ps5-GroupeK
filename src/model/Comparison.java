@@ -3,6 +3,8 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+import poker.Hand;
+
 /**
  * @Project: Dojo
  * @Author: PS5-Groupe K
@@ -124,20 +126,33 @@ public class Comparison {
         return name1.containsAll(name2) && name2.containsAll(name1);
     }
     
-    public String compare(List<Card> handCard1, List<Card> handCard2) { //comparaison en fonction des points attribuï¿½s ï¿½ chaque main
-    	if (player1.pointPlayer(handCard1) == player2.pointPlayer(handCard2)){
-    		String hhh = "Egalité";
-    		System.out.println(hhh);
-    		return hhh;
-    	}
-    	else if (player1.pointPlayer(handCard1) < player2.pointPlayer(handCard2)) {
-    		String hhh = "La main 1 gagne : "+player1.result;
-    		System.out.println(hhh);
-    		return hhh;
-    	}
-    	else {
-    		 return "La main 2 gagne : "+player2.result;
-   
-    	}
-    }
+  
+
+//    public String compare(List<Card> handCard1, List<Card> handCard2) { //comparaison en fonction des points attribuï¿½s ï¿½ chaque main
+//    	if (player1.pointPlayer(handCard1) == player2.pointPlayer(handCard2)){
+//    		String hhh = "Egalitï¿½";
+//    		return hhh;
+//    		if (player1.pointPlayer(handCard1) > player2.pointPlayer(handCard2)){
+//    			return "player1 gagne";
+//    			
+//    		}
+//    		if (player1.pointPlayer(handCard1) < player2.pointPlayer(handCard2)){
+//    			return "player2 gagne";
+//    			
+//    		}
+//    	}
+
+//    public int compare(List<Card> handCard1, List<Card> handCard2) {
+//    	if (player1.pointPlayer(handCard1) == player2.pointPlayer(handCard2)){
+//    		return 0;
+//
+//    	}
+//    	else if (player1.pointPlayer(handCard1) < player2.pointPlayer(handCard2)) {
+//    		return 2;
+//    	}
+//    	else {
+//    		 return 1;
+//   
+//    	}
+//    }
 }

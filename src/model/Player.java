@@ -16,18 +16,19 @@ public class Player {
 	List<Card> handcard = new ArrayList<>();
 	public List<Integer> compteur = new ArrayList<Integer>();
 	public List<Integer> compteur1 = new ArrayList<Integer>();
-	String myRank[]= {"2","3","4","5","6","7","8","9","10","J","Q","K","A"};
+	String myRank[] = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A" };
 
 	int point = 0;
 	String result = null;
-	public static final int PAIREPOINT = 1000000; //Points permettants de comparer les mains et de d�terminer le vainqueur
+	public static final int PAIREPOINT = 1000000; // Points permettants de comparer les mains et de d锟絫erminer le
+													// vainqueur
 	public static final int PAIRE2POINT = 2000000;
 	public static final int BRELANPOINT = 3000000;
 	public static final int SUITEPOINT = 4000000;
 	public static final int COULEURPOINT = 5000000;
 	public static final int FULLPOINT = 6000000;
 	public static final int CARREPOINT = 7000000;
-	public static final int QFPOINT = 40000000;
+	public static final int QFPOINT = 4000000;
 
 	public static final int SBASEVALUE = 10000; // base for short value
 	public static final int LBASEVALUE = 100; // base for long value
@@ -68,7 +69,8 @@ public class Player {
 		}
 		return cardMax;
 	}
-//M�thode permettant de trouver facilement les types de mains ayants des cartes identiques
+
+//M锟絫hode permettant de trouver facilement les types de mains ayants des cartes identiques
 	public void Compteur(List<Card> handCard1) {
 		for (int i = 0; i < handCard1.size(); i++) {
 			for (int j = i + 1; j < handCard1.size(); j++) {
@@ -157,13 +159,15 @@ public class Player {
 			return false;
 		}
 	}
-//attribution des points � chaque type de main
+
+
 	public int point_leplushaute(List<Card> handlist) {
-		for (Card find :handlist)
-			point += find.getRank().longValue();
+		for(int i = 0;i<handlist.size();i++)
+			point += handlist.get(i).getRank().longValue();
+		System.out.println(point + "fhdjhdj");
 		return point;
 	}
-	
+
 	public int point_pair(List<Card> handlist) {
 		if (havePair(handlist)) {
 			int svalue = (int) (Math.log(compteur.get(0)) / Math.log(2)) + 2;
@@ -188,8 +192,8 @@ public class Player {
 				if (find.getRank().longValue() != compteur.get(0) && find.getRank().longValue() != compteur.get(1))
 					point += find.getRank().shortValue();
 				else
-					result = "deux Paire : " + myRank[(int) (Math.log(compteur.get(0)) / Math.log(2))-2] + " et "
-					+ myRank[(int) (Math.log(compteur.get(1)) / Math.log(2))-2];
+					result = "deux Paire : " + myRank[(int) (Math.log(compteur.get(0)) / Math.log(2)) - 2] + " et "
+							+ myRank[(int) (Math.log(compteur.get(1)) / Math.log(2)) - 2];
 		}
 		return point;
 	}
@@ -204,7 +208,7 @@ public class Player {
 				if (find.getRank().longValue() != compteur.get(0))
 					point += find.getRank().longValue();
 				else
-					result = "brelan de " + find.getRank();
+					result = "brelan de " + svalue;
 		}
 		return point;
 	}
@@ -230,20 +234,20 @@ public class Player {
 				for (int j = i + 1; j < compteur.size(); j++) {
 					if (compteur.get(i).shortValue() == compteur.get(j).shortValue()) {
 						compteur1.add((int) compteur.get(i).shortValue());
-						
+
 					}
 					int svalue = (int) (Math.log(compteur.get(0)) / Math.log(2)) + 2;
 					point = svalue * SBASEVALUE;
-					
+
 				}
 			}
-			for (int find: compteur)
+			for (int find : compteur)
 				if (find != compteur1.get(0).shortValue()) {
 					find = (int) (Math.log(find) / Math.log(2)) + 2;
 					point += find;
-				}
-				else	
-					result = "full : " + myRank[(int) (Math.log(compteur.get(0)) / Math.log(2)) + 2] + " sur " + myRank[(int) (Math.log(find) / Math.log(2)) + 2];
+				} else
+					result = "full : " + myRank[(int) (Math.log(compteur.get(0)) / Math.log(2)) + 2] + " sur "
+							+ myRank[(int) (Math.log(find) / Math.log(2)) + 2];
 			point += FULLPOINT;
 		}
 		return point;
@@ -251,11 +255,11 @@ public class Player {
 
 	public int point_samecolor(List<Card> handlist) {
 		if (haveSameColor(handlist)) {
-			for(int i = 0; i<handlist.size();i++) {
-			point += handlist.get(i).getRank().longValue();
+			for (int i = 0; i < handlist.size(); i++) {
+				point += handlist.get(i).getRank().longValue();
 			}
 			result = "Couleur";
-			point +=COULEURPOINT;
+			point += COULEURPOINT;
 		}
 		return point;
 	}
@@ -270,41 +274,56 @@ public class Player {
 
 	public int point_quinteFlush(List<Card> handlist) {
 		if (point_samecolor(handlist) * point_suite(handlist) != 0) {
-			point = QFPOINT + point_suite(handlist);
+			point = point_suite(handlist);
 		}
+		point += QFPOINT;
 		result = "Quinte Flush de " + max(handlist).getRank().shortValue();
 		return point;
 	}
 
-	
-	public int pointPlayer(List<Card> handCard) {
+	public int point(List<Card> handCard) {
 		if (haveQuinteFlush(handCard)) {
 			point = point_quinteFlush(handCard);
 		}
-		else if (haveCarre(handCard)) {
+		if (haveCarre(handCard)) {
 			point = point_carre(handCard);
 		}
-		else if (haveFull(handCard)) {
+		if (haveFull(handCard)) {
 			point = point_full(handCard);
 		}
-		else if (haveSameColor(handCard)) {
+		if (haveSameColor(handCard)) {
 			point = point_samecolor(handCard);
 		}
-		else if (haveSuit(handCard)) {
+		if (haveSuit(handCard)) {
 			point = point_suite(handCard);
 		}
-		else if (haveBrelan(handCard)) {
+		if (haveBrelan(handCard)) {
 			point = point_brelan(handCard);
 		}
-		else if (haveDoublePair(handCard)) {
+		if (haveDoublePair(handCard)) {
 			point = point_doublepaire(handCard);
 		}
-		else if (havePair(handCard)) {
+		if (havePair(handCard)) {
 			point = point_pair(handCard);
 		}
-		else {
+		if (!haveQuinteFlush(handCard) && !haveCarre(handCard) && !haveFull(handCard) && !haveSameColor(handCard)
+				&& !haveSuit(handCard)&&!haveBrelan(handCard)&&!haveDoublePair(handCard)&&!havePair(handCard)) {
 			point = point_leplushaute(handCard);
 		}
 		return point;
 	}
+
+//	public String compare(List<Card> handCard1, List<Card> handCard2) {
+//		int point1 = pointPlayer(handCard1);
+//		String result1 = "La main 1 gagne avec " + result;
+//		int point2 = pointPlayer(handCard2);
+//		String result2 = "La main 2 gagne avec " + result;
+//		if (point1 == point2)
+//			return "Egalite";
+//		else if(point1>point2) {
+//			return result1;
+//		}else {
+//			return result2;
+//		}
+//	}
 }
