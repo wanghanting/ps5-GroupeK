@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -14,24 +16,26 @@ public class Main {
 
     public static void main(String[] args) {
         Comparison comparison = new Comparison();
+        List<String> cs = new ArrayList<>();
 
         System.out.print("Main 1: ");
         
         for ( int i = 0; i < 5; i++) {
-        	String ri = in.next();
-        	comparison.player1.addCard(new Card(Rank.getRank(ri.substring(0,ri.length()-2)), Color.getColor(ri.substring(ri.length() - 2))));
+        	cs.add(in.next());
+        	comparison.player1.addCard(new Card(Rank.getRank(cs.get(i).substring(0,cs.get(i).length()-2)), Color.getColor(cs.get(i).substring(cs.get(i).length() - 2))));
         }
 
         System.out.print("Main 2: ");
 
         for ( int i = 5; i < 10; i++) {
-        	String ri = in.next();
-        	comparison.player2.addCard(new Card(Rank.getRank(ri.substring(0,ri.length()-2)), Color.getColor(ri.substring(ri.length() - 2))));
+        	cs.add(in.next());
+        	comparison.player2.addCard(new Card(Rank.getRank(cs.get(i).substring(0,cs.get(i).length()-2)), Color.getColor(cs.get(i).substring(cs.get(i).length() - 2))));
         }
 
         in.close();
+
         System.out.println(comparison.player1.handcard);
         System.out.println(comparison.player2.handcard);
-//        System.out.println(comparison.compare(p1.handcard, p2.handcard));
+        System.out.println(comparison.compare(comparison.player1.handcard, comparison.player2.handcard));
     }
 }

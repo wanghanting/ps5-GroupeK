@@ -20,42 +20,41 @@ public class Comparison {
         player1 = new Player("player1");
         player2 = new Player("player2");
     }
-
-
-    public int compare(List<Card> handCard1, List<Card> handCard2) {
-        if (player1.compteur.size() != 0 && player2.compteur.size() != 0) {
-            if (player1.compteur.size() > player2.compteur.size()) {
-                return 1;
-            } else if (player1.compteur.size() < player2.compteur.size()) {
-                return 2;
-            } else {
-                for (int i = 0; i < handCard1.size(); i++) {
-                    value1.add(handCard1.get(i).getValue());
-                    value2.add(handCard2.get(i).getValue());
-                }
-                player1.SortDecreasing(value1);
-                player2.SortDecreasing(value2);
-//                System.out.println(value1);
-//                System.out.println(value2);
-                for (int i = 0; i < value1.size(); i++) {
-                    if (value1.get(i) > value2.get(i)) {
-                        return 1;
-                    } else if (handCard1.get(i).getValue() < handCard2.get(i).getValue()) {
-                        return 2;
-                    } else {
-                        return 0;
-                    }
-                }
-            }
-        }
-        System.out.println("!!!");
-        return 0;
-    }
+    
+//    public int compare(List<Card> handCard1, List<Card> handCard2) {
+//        if (player1.compteur.size() != 0 && player2.compteur.size() != 0) {
+//            if (player1.compteur.size() > player2.compteur.size()) {
+//                return 1;
+//            } else if (player1.compteur.size() < player2.compteur.size()) {
+//                return 2;
+//            } else {
+//                for (int i = 0; i < handCard1.size(); i++) {
+//                    value1.add(handCard1.get(i).getValue());
+//                    value2.add(handCard2.get(i).getValue());
+//                }
+//                player1.SortDecreasing(value1);
+//                player2.SortDecreasing(value2);
+////                System.out.println(value1);
+////                System.out.println(value2);
+//                for (int i = 0; i < value1.size(); i++) {
+//                    if (value1.get(i) > value2.get(i)) {
+//                        return 1;
+//                    } else if (handCard1.get(i).getValue() < handCard2.get(i).getValue()) {
+//                        return 2;
+//                    } else {
+//                        return 0;
+//                    }
+//                }
+//            }
+//        }
+//        System.out.println("!!!");
+//        return 0;
+//    }
 
 
 
     /*
-     * pour comparer l'�galit� des cartes dans les deux mains
+     * pour comparer l'锟絞alit锟� des cartes dans les deux mains
      */
 
     // 0 = equal ; 1 = p1 win ; 2 = p2 win
@@ -67,7 +66,7 @@ public class Comparison {
      * (player1.max(handCard1).getValue() < player2.max(handCard2).getValue()) {
      * System.out.println("player2 gagne avec la plus haute carte " +
      * player2.max(handCard2).getValue()); return 2; } else {
-     * System.out.println("Egalit�"); return 0; } }
+     * System.out.println("Egalit锟�"); return 0; } }
      */
 
     //	 0 = equal ; 1 = p1 win ; 2 = p2 win
@@ -110,7 +109,7 @@ public class Comparison {
 //		List<Card> handCard2 = player2.getHandcard();
 //		compareBrelan(handCard1, handCard2);
 //		if(equals(handCard1, handCard2)) {
-//			System.out.println("Egalit�");
+//			System.out.println("Egalit锟�");
 //		}
 //	}
     public boolean equals(List<Card> handCard1, List<Card> handCard2) {
@@ -123,5 +122,20 @@ public class Comparison {
             name2.add(handCard2.get(i).getName());
         }
         return name1.containsAll(name2) && name2.containsAll(name1);
+    }
+    
+    public String compare(List<Card> handCard1, List<Card> handCard2) {
+    	if (player1.pointPlayer(handCard1) == player2.pointPlayer(handCard2)){
+    		return "Egalit�";
+    	}
+    	else if (player1.pointPlayer(handCard1) < player2.pointPlayer(handCard2)) {
+    		String hhh = "La main 1 gagne : "+player1.result;
+    		System.out.println(hhh);
+    		return hhh;
+    	}
+    	else {
+    		 return "La main 2 gagne : "+player2.result;
+   
+    	}
     }
 }

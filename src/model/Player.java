@@ -16,10 +16,10 @@ public class Player {
 	List<Card> handcard = new ArrayList<>();
 	public List<Integer> compteur = new ArrayList<Integer>();
 	public List<Integer> compteur1 = new ArrayList<Integer>();
-	String myRank[]= {"2","3","4","5","6","7","8","9","10","J","Q","K"};
+	String myRank[]= {"2","3","4","5","6","7","8","9","10","J","Q","K","A"};
 
 	int point = 0;
-	String result = null;
+	String result;
 	public static final int PAIREPOINT = 1000000;
 	public static final int PAIRE2POINT = 2000000;
 	public static final int BRELANPOINT = 3000000;
@@ -27,7 +27,7 @@ public class Player {
 	public static final int COULEURPOINT = 5000000;
 	public static final int FULLPOINT = 6000000;
 	public static final int CARREPOINT = 7000000;
-	public static final int QFPOINT = 4000000;
+	public static final int QFPOINT = 40000000;
 
 	public static final int SBASEVALUE = 10000; // base for short value
 	public static final int LBASEVALUE = 100; // base for long value
@@ -69,7 +69,7 @@ public class Player {
 		return cardMax;
 	}
 
-	public int Compteur(List<Card> handCard1) {
+	public void Compteur(List<Card> handCard1) {
 		for (int i = 0; i < handCard1.size(); i++) {
 			for (int j = i + 1; j < handCard1.size(); j++) {
 				if (handCard1.get(i).getValue() == handCard1.get(j).getValue()) {
@@ -77,7 +77,6 @@ public class Player {
 				}
 			}
 		}
-		return compteur.size();
 	}
 
 	public boolean havePair(List<Card> handCard1) {
@@ -164,6 +163,12 @@ public class Player {
 		}
 	}
 
+	public int point_leplushaute(List<Card> handlist) {
+		for (Card find :handlist)
+			point += find.getRank().longValue();
+		return point;
+	}
+	
 	public int point_pair(List<Card> handlist) {
 		if (havePair(handlist)) {
 			int svalue = (int) (Math.log(compteur.get(0)) / Math.log(2)) + 2;
@@ -273,6 +278,38 @@ public class Player {
 			point = QFPOINT + point_suite(handlist);
 		}
 		result = "Quinte Flush de " + max(handlist).getRank().shortValue();
+		return point;
+	}
+
+	
+	public int pointPlayer(List<Card> handCard) {
+		if (haveQuinteFlush(handCard)) {
+			point = point_quinteFlush(handCard);
+		}
+		else if (haveCarre(handCard)) {
+			point = point_carre(handCard);
+		}
+		else if (haveFull(handCard)) {
+			point = point_full(handCard);
+		}
+		else if (haveSameColor(handCard)) {
+			point = point_samecolor(handCard);
+		}
+		else if (haveSuit(handCard)) {
+			point = point_suite(handCard);
+		}
+		else if (haveBrelan(handCard)) {
+			point = point_brelan(handCard);
+		}
+		else if (haveDoublePair(handCard)) {
+			point = point_doublepaire(handCard);
+		}
+		else if (havePair(handCard)) {
+			point = point_pair(handCard);
+		}
+		else {
+			point = point_leplushaute(handCard);
+		}
 		return point;
 	}
 }
