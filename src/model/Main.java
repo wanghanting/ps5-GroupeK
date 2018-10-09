@@ -32,6 +32,6 @@ public class Main {
         in.close();
         System.out.println(comparison.player1.handcard);
         System.out.println(comparison.player2.handcard);
-//        System.out.println(comparison.compare(p1.handcard, p2.handcard));
+        System.out.println(comparison.compare(comparison.player1.handcard, comparison.player2.handcard));
     }
 }

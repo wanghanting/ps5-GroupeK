@@ -126,7 +126,9 @@ public class Comparison {
     
     public String compare(List<Card> handCard1, List<Card> handCard2) { //comparaison en fonction des points attribuï¿½s ï¿½ chaque main
     	if (player1.pointPlayer(handCard1) == player2.pointPlayer(handCard2)){
-    		return "Egalitï¿½";
+    		String hhh = "Egalité";
+    		System.out.println(hhh);
+    		return hhh;
     	}
     	else if (player1.pointPlayer(handCard1) < player2.pointPlayer(handCard2)) {
     		String hhh = "La main 1 gagne : "+player1.result;
