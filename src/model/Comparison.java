@@ -12,8 +12,8 @@ import java.util.List;
  * @University: Polytech Nice-Sophia
  */
 public class Comparison {
-    Player player1;
-    Player player2;
+    public Player player1;
+    public Player player2;
     List<Integer> value1 = new ArrayList<Integer>();
     List<Integer> value2 = new ArrayList<Integer>();
 

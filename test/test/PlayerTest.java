@@ -5,12 +5,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.*;
 import org.junit.jupiter.api.Test;
-
-import model.Card;
-import model.Color;
-import model.Player;
-import model.Rank;
 
 class PlayerTest {
 	Player p1 = new Player("p1");
@@ -595,7 +591,7 @@ class PlayerTest {
 		cardlist1.add(card3);
 		cardlist1.add(card4);
 		cardlist1.add(card5);
-		int expected = 44000008;
+		int expected = 8000008;
 		int actuel = p1.point_quinteFlush(cardlist1);
 		assertEquals(expected, actuel);
 	}
@@ -614,7 +610,7 @@ class PlayerTest {
 		cardlist1.add(card3);
 		cardlist1.add(card4);
 		cardlist1.add(card5);
-		int expected = 44000009;
+		int expected = 8000009;
 		int actuel = p1.point_quinteFlush(cardlist1);
 		assertEquals(expected, actuel);
 	}
@@ -669,35 +665,35 @@ class PlayerTest {
 //	        assertEquals(actual, expected);
 	  }
 
-	    void testCompareCinqCartesleplushaute() {
-	        Card card1 = new Card(Rank.EIGHT);
-	        Card card2 = new Card(Rank.FIVE);
-	        Card card3 = new Card(Rank.TWO);
-	        Card card4 = new Card(Rank.KING);
-	        Card card5 = new Card(Rank.THREE);
-	        Card card6 = new Card(Rank.EIGHT);
-	        Card card7 = new Card(Rank.FIVE);
-	        Card card8 = new Card(Rank.ACE);
-	        Card card9 = new Card(Rank.TWO);
-	        Card card10 = new Card(Rank.THREE);
-
-	        List<Card> cardlist1 = new ArrayList<Card>();
-	        List<Card> cardlist2 = new ArrayList<Card>();
-	        cardlist1.add(card1);
-	        cardlist1.add(card2);
-	        cardlist1.add(card3);
-	        cardlist1.add(card4);
-	        cardlist1.add(card5);
-	        cardlist2.add(card6);
-	        cardlist2.add(card7);
-	        cardlist2.add(card8);
-	        cardlist2.add(card9);
-	        cardlist2.add(card10);
-
-	        String actual = p1.compare(cardlist1, cardlist2);
-	        String expected = "Egalit�";
-	        assertEquals(actual, expected);
-	    }
+//	    void testCompareCinqCartesleplushaute() {
+//	        Card card1 = new Card(Rank.EIGHT);
+//	        Card card2 = new Card(Rank.FIVE);
+//	        Card card3 = new Card(Rank.TWO);
+//	        Card card4 = new Card(Rank.KING);
+//	        Card card5 = new Card(Rank.THREE);
+//	        Card card6 = new Card(Rank.EIGHT);
+//	        Card card7 = new Card(Rank.FIVE);
+//	        Card card8 = new Card(Rank.ACE);
+//	        Card card9 = new Card(Rank.TWO);
+//	        Card card10 = new Card(Rank.THREE);
+//
+//	        List<Card> cardlist1 = new ArrayList<Card>();
+//	        List<Card> cardlist2 = new ArrayList<Card>();
+//	        cardlist1.add(card1);
+//	        cardlist1.add(card2);
+//	        cardlist1.add(card3);
+//	        cardlist1.add(card4);
+//	        cardlist1.add(card5);
+//	        cardlist2.add(card6);
+//	        cardlist2.add(card7);
+//	        cardlist2.add(card8);
+//	        cardlist2.add(card9);
+//	        cardlist2.add(card10);
+//
+//	        String actual = p1.compare(cardlist1, cardlist2);
+//	        String expected = "Egalit�";
+//	        assertEquals(actual, expected);
+//	    }
 	    
 	    @Test
 	    void testMain2GagneForCompare() {

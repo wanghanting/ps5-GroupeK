@@ -153,24 +153,23 @@ class ComparisonTest extends Comparison {
 	        Card card5 = new Card(Rank.ACE, Color.Pique);
 	        Card card6 = new Card(Rank.TWO, Color.Pique);
 	        Card card7 = new Card(Rank.THREE, Color.Pique);
-	        Card card8 = new Card(Rank.FOUR, Color.Coeur);
-	        Card card9 = new Card(Rank.ACE, Color.Coeur);
+	        Card card8 = new Card(Rank.FOUR, Color.Pique);
+	        Card card9 = new Card(Rank.ACE, Color.Carreau);
 	        Card card10 = new Card(Rank.FIVE, Color.Pique);
-	        List<Card> cardlist1 = new ArrayList<Card>();
-	        List<Card> cardlist2 = new ArrayList<Card>();
-	        cardlist1.add(card1);
-	        cardlist1.add(card2);
-	        cardlist1.add(card3);
-	        cardlist1.add(card4);
-	        cardlist1.add(card5);
-	        cardlist2.add(card6);
-	        cardlist2.add(card7);
-	        cardlist2.add(card8);
-	        cardlist2.add(card9);
-	        cardlist2.add(card10);
-	        String actual = comparison.compare(cardlist1, cardlist2);
+	        comparison.player1.getHandcard().add(card1);
+            comparison.player1.getHandcard().add(card2);
+            comparison.player1.getHandcard().add(card3);
+            comparison.player1.getHandcard().add(card4);
+            comparison.player1.getHandcard().add(card5);
+            comparison.player2.getHandcard().add(card6);
+            comparison.player2.getHandcard().add(card7);
+            comparison.player2.getHandcard().add(card8);
+            comparison.player2.getHandcard().add(card9);
+            comparison.player2.getHandcard().add(card10);
+	        System.out.println(comparison.compare(comparison.player1.getHandcard(), comparison.player2.getHandcard()));
+	        String actual = comparison.compare(comparison.player1.getHandcard(), comparison.player2.getHandcard());
 	        String expected = "La main 1 gagne : Couleur";
-	        assertEquals(actual, expected);
+	        assertEquals(expected, actual);
 	    }
 	    
 	    @Test
@@ -184,22 +183,21 @@ class ComparisonTest extends Comparison {
 	        Card card7 = new Card(Rank.THREE, Color.Pique);
 	        Card card8 = new Card(Rank.FOUR, Color.Coeur);
 	        Card card9 = new Card(Rank.FOUR, Color.Carreau);
-	        Card card10 = new Card(Rank.FIVE, Color.Pique);
-	        List<Card> cardlist1 = new ArrayList<Card>();
-	        List<Card> cardlist2 = new ArrayList<Card>();
-	        cardlist1.add(card1);
-	        cardlist1.add(card2);
-	        cardlist1.add(card3);
-	        cardlist1.add(card4);
-	        cardlist1.add(card5);
-	        cardlist2.add(card6);
-	        cardlist2.add(card7);
-	        cardlist2.add(card8);
-	        cardlist2.add(card9);
-	        cardlist2.add(card10);
-	        String actual = comparison.compare(cardlist1, cardlist2);
-	        String expected = "La main 2 gagne : brelan de 4";
-	        assertEquals(actual, expected);
+	        Card card10 = new Card(Rank.TWO, Color.Pique);
+            comparison.player1.getHandcard().add(card1);
+            comparison.player1.getHandcard().add(card2);
+            comparison.player1.getHandcard().add(card3);
+            comparison.player1.getHandcard().add(card4);
+            comparison.player1.getHandcard().add(card5);
+            comparison.player2.getHandcard().add(card6);
+            comparison.player2.getHandcard().add(card7);
+            comparison.player2.getHandcard().add(card8);
+            comparison.player2.getHandcard().add(card9);
+            comparison.player2.getHandcard().add(card10);
+            System.out.println(comparison.compare(comparison.player1.getHandcard(), comparison.player2.getHandcard()));
+            String actual = comparison.compare(comparison.player1.getHandcard(), comparison.player2.getHandcard());
+            String expected = "La main 2 gagne : brelan de 4";
+            assertEquals(expected, actual);
 	    }
 
 }
