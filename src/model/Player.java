@@ -15,9 +15,6 @@ import java.util.Scanner;
 public class Player {
 	String name;
 	List<Card> handcard = new ArrayList<>();
-	Player player1;
-	Player player2;
-	Scanner in = new Scanner(System.in);
 	public List<Integer> compteur = new ArrayList<Integer>();
 	public List<Integer> compteur1 = new ArrayList<Integer>();
 	String myRank[]= {"2","3","4","5","6","7","8","9","10","J","Q","K"};
