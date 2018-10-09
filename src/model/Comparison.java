@@ -23,9 +23,9 @@ public class Comparison {
     }
     
 
-    public boolean equals(List<Card> handCard1, List<Card> handCard2) { //Fonction qui v�rifie les �galit�s
+    public boolean equals(List<Card> handCard1, List<Card> handCard2) { //Fonction qui verifie les egalites
         List<String> name1 = new ArrayList<>();
-        List<String> name2 = new ArrayList<>(); //par soucis de r�f�rences on les place dans une nouvelle liste
+        List<String> name2 = new ArrayList<>(); //par soucis de references on les place dans une nouvelle liste
         for (int i = 0; i < handCard1.size(); i++) {
             name1.add(handCard1.get(i).getName());
         }
@@ -35,6 +35,7 @@ public class Comparison {
         return name1.containsAll(name2) && name2.containsAll(name1);
     }
     
+
 
   
 
@@ -66,10 +67,10 @@ public class Comparison {
 //    	}
 //    }
 
-    public String compare(List<Card> handCard1, List<Card> handCard2) { //comparaison en fonction des points attribu�s � chaque main
+
+    public String compare(List<Card> handCard1, List<Card> handCard2) { //comparaison en fonction des points attribues de chaque main
     	if (player1.point(handCard1) == player2.point(handCard2)){
     		String hhh = "Egalit�";
-    		System.out.println(hhh);
     		return hhh;
     	}
     	else if (player1.point(handCard1) > player2.point(handCard2)) {
